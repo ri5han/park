@@ -1,0 +1,21 @@
+<div class="right-container">
+                <div class="top">
+                    <h2 style="font-style: italic; text-align: center;">Price Details</h2>
+                </div><br>
+                <div class="info">
+                    <p>
+                        <b>Time :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                        <input type="text" placeholder="Hrs" style="width:15%; font-weight: bold;">
+                        <input type="text" placeholder="Mins" style="width:15%; font-weight: bold;">&nbsp;&nbsp;&nbsp;
+                        <button type="button" style="width: 15%; font-size: 13px; background: #ff4b20;">Get Price</button>
+                        <p><b>Parking Lot no.:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G101</p>
+                        <p> Base Price :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;50 / hr</p>
+                        <p> Service Tax :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;&nbsp;&nbsp;1.5</p>
+                        <p> Processing Fee :&nbsp;&nbsp;&nbsp;&nbsp;  Rs.&nbsp;&nbsp;0.5</p><hr>
+                        <p><b>Total Amount </b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rs.&nbsp;&nbsp;55.0</p>
+                        <input type="button" class="but" value="Reserve">
+                    </p>
+                    <br>
+                </div>
+        </div>
+
