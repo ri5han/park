@@ -1,0 +1,22 @@
+{
+    "name": "Parkinzo",
+    "short_name": "Parkz",
+    "start_url": "http://www.parkinzo.com/",
+    "display": "standalone",
+    "theme_color": "#ff4b20",
+    "background_color": "#fff7f4",
+    "description": "Best parking spaces at your finger tips.",
+    "categories": ["parking","automobile","transport"],
+    "lang": "en-US",
+    "orientation": "portrait-primary",
+
+    "icons": [{
+      "src": "images/touch/homescreen48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }, {
+      "src": "images/touch/homescreen72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }]
+  }

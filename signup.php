@@ -30,6 +30,8 @@
     <link rel="icon" href="images/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>Parkinzo | Sign Up</title>
+    <link rel="manifest" href="manifest.json" content-type="application/json">
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">

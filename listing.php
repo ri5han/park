@@ -1,10 +1,12 @@
 <?php
     session_start();
+    require('include/dbconnect.php');
 
     if(isset($_SESSION['username']) == false) {
         echo '<body style="display:none;"></body>';
         echo "<script>alert('You are not authenticated. Please login or signup.');</script>";
     }
+    
     
 
 ?>
@@ -41,7 +43,7 @@
             <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
 
             <ul>
-                <li><a style="color: #ff4b20" href="listing.php">">HOME</a></li>
+                <li><a style="color: #ff4b20" href="listing.php">HOME</a></li>
                 <!-- <li><a href="about.html">ABOUT</a></li> -->
                 <li><a href="contact.php">CONTACT</a></li>
                 <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
@@ -77,12 +79,12 @@
                     <input type="date" placeholder="Start Time">
                 </fieldset>
             </div>
-            <div class="search2">
+            <!-- <div class="search2">
                 <fieldset>
                     <legend>Leaving On</legend>
                     <input type="date" placeholder="End Time">
                 </fieldset>
-            </div>
+            </div> -->
             <div class="search3">
                 <button type="button" name="search">SEARCH</button>
             </div>
