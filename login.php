@@ -1,5 +1,5 @@
 <?php
-    //session_start();
+    session_start();
     require("include/dbconnect.php");
 
     if(isset($_POST['login'])) {
@@ -13,8 +13,10 @@
         } else {
             $users = mysqli_fetch_all($result,MYSQLI_ASSOC);
             if(password_verify($password,$users[0]['password'])) {
-                //$_SESSION['username'] = $username;
-                echo "Logged in";
+                $_SESSION['username'] = $username;
+                header('Location: listing.php');
+                // echo "Logged in";
+                // echo $_SESSION['username'];
             } else {
                 echo "<script>alert('Password is incorrect.');</script>";                            
             }
