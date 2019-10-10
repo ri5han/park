@@ -59,7 +59,7 @@
     <meta charset="UTF-8">
     <link rel="icon" href="images/logo.png">
     <title>Parkinzo | Welcome</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/stylenew.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

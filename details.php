@@ -3,6 +3,11 @@
     session_start();
     require('include/dbconnect.php');
 
+    if(isset($_SESSION['username']) == false) {
+        echo '<body style="display:none;"></body>';
+        echo "<script>alert('You are not authenticated. Please login or signup.');</script>";
+    }
+
     $spaceId = $_GET['spaceId'];
     
     $queryList = "SELECT * FROM spaces WHERE id='$spaceId'";

@@ -5,6 +5,11 @@
     require('include/dbconnect.php');
     date_default_timezone_set('Asia/Kolkata');
 
+    if(isset($_SESSION['username']) == false) {
+        echo '<body style="display:none;"></body>';
+        echo "<script>alert('You are not authenticated. Please login or signup.');</script>";
+    }
+
     if($_GET['spaceId']){
         $spaceId = $_GET['spaceId'];
         $_SESSION['spaceId'] = $spaceId;

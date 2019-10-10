@@ -1,3 +1,44 @@
+<?php
+
+if(isset($_POST['submit'])){
+		
+    $name = htmlspecialchars($_POST['username']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $email = htmlspecialchars($_POST['email']);
+    $city = htmlspecialchars($_POST['city']);
+    $wifi = htmlspecialchars($_POST['wifi']);
+    $charging = htmlspecialchars($_POST['charging']);
+    $handicap = htmlspecialchars($_POST['handicap']);
+    $capacity = htmlspecialchars($_POST['capacity']);
+    $duration = htmlspecialchars($_POST['duration']);
+
+    
+    $toEmail = 'rishanmascarenhas@gmail.com';
+    $subject = 'Contact From '.$name;
+    $body = '<h2>Contact Feedback</h2>
+            <h4>Name</h4><p>'.$name.'</p>
+            <h4>Phone</h4><p>'.$phone.'</p>
+            <h4>Email</h4><p>'.$email.'</p>
+            <h4>City</h4><p>'.$city.'</p>
+            <h4>Amenities</h4><p>'.$wifi." ".$handicap." ".$Charging.'</p>
+            <h4>Capacity</h4><p>'.$capacity.'</p>
+            <h4>Duration</h4><p>'.$duration.'</p>';
+    
+    $headers = "MIME-Version: 1.0" ."\r\n";
+    $headers .="Content-Type:text/html;charset=UTF-8" . "\r\n";
+    
+    $headers .= "From: " .$name. "<".$email.">". "\r\n";
+    if(mail($toEmail, $subject, $body, $headers)){
+        // Email Sent
+        echo "<script>prompt('Your details have been sent.');</script>";
+    } else {
+        // Failed
+        echo "<script>prompt('There was a problem.');</script>";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,51 +73,56 @@
                         <br>
                         <div class="login-align">
                             <div style="text-align: left;">
-                                <form name="Request_Frm" id="Request_Frm" action="" method="post">
-                                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Name</label>&nbsp;&nbsp;<br><input id="s-username" type="text" placeholder="Enter name" required>
+                                <form name="Request_Frm" id="Request_Frm" action="rent.php" method="post">
+                                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
+                                    <label>Name</label>&nbsp;&nbsp;<br><input name="username" id="s-username" type="text" placeholder="Enter name" required>
                                     <br><br>
-                                    <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Email</label>&nbsp;&nbsp;<br><input id="s-email" type="email" placeholder="Enter email..." required>
+                                    <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
+                                    <label>Email</label>&nbsp;&nbsp;<br><input name="email" id="s-email" type="email" placeholder="Enter email..." required>
                                     <br><br>
-                                    <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Mobile</label>&nbsp;&nbsp;<br><input id="s-number" type="number" placeholder="Enter mobile number..." required>
+                                    <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
+                                    <label>Mobile</label>&nbsp;&nbsp;<br><input name="phone" id="s-number" type="number" placeholder="Enter mobile number..." required>
                                     <br><br>
-                                    <i class="fa fa-home fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Address</label>&nbsp;&nbsp;<br><textarea  name="addres" required  placeholder="Enter address" style="width: 98%;color: white; background-color: transparent;"></textarea>
+                                    <i class="fa fa-home fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
+                                    <label>Address</label>&nbsp;&nbsp;<br><textarea  name="address" required  placeholder="Enter address" style="width: 98%;color: white; background-color: transparent;"></textarea>
                                     <br><br>
-                                    <i class="fa fa-street-view fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Select your city</label>&nbsp;&nbsp;<br>
-                                    <select>
-                                    	<option>Select</option>
-                                    	<option>Mumbai</option>
-                                    	<option>Delhi</option>
-                                    	<option>Banglore</option>
+                                    <i class="fa fa-street-view fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
+                                    <label>Select your city</label>&nbsp;&nbsp;<br>
+                                    <select name="city">
+                                    	<option value="#">Select</option>
+                                    	<option value="mumbai">Mumbai</option>
+                                    	<option value="delhi">Delhi</option>
+                                    	<option value="banglore">Banglore</option>
                                     </select>
                                     <br><br>
                                     <i class="fa fa-th-list fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Amenities</label>
                                     <br>
                                     <div class="ammen">
                                         <label>Handicap&nbsp;wheels</label>
-                                        <input id="city" type="checkbox" name="vehicle">
+                                        <input value="handicap" id="city" type="checkbox" name="handicap">
                                     </div>    
                                     <div class="ammen">
                                         <label>Charging&nbsp;port</label>
-                                        <input id="city" type="checkbox" name="vehicle">
+                                        <input value="charging" id="city" type="checkbox" name="charging">
                                     </div> 
                                     <div class="ammen">
                                         <label>WiFi&nbsp;Enabled</label>
-                                        <input id="city" type="checkbox" name="vehicle">
+                                        <input name="wifi" id="city" type="checkbox" name="wifi">
                                     </div><br>
                                     <i class="fa fa-car fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Total Capacity</label>&nbsp;&nbsp;<br>
-                                    <input id="city" type="number" placeholder="Enter capacity" required>
+                                    <input name="capacity" id="city" type="number" placeholder="Enter capacity" required>
                                     <br><br>
                                     <i class="fa fa-question-circle-o fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Rent duration</label>&nbsp;&nbsp;<br>
-                                    <input id="city" type="number" placeholder="Enter duration" required>
+                                    <input name="duration" id="city" type="number" placeholder="Enter duration" required>
                                     <br><br>
                                     <i class="fa fa-file-image-o fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Upload image</label>&nbsp;&nbsp;<br>
-                                    <input id="city" type="file" required>
+                                    <input name="image" id="city" type="file" required>
                                     <br><br>
                             </div>
                         </div>
                         <p>By proceeding with rent with us you agree to the<br> Parkinzo <a style="color:#4fffff;" href="#">Terms & Conditions</a> and <a style="color:#4fffff;" href="#">Privacy Policy</a>.</p>
                         <br><br>
-                        <input class="login-btn" style="width: 30%; background-color: #ff4b20;border-color: #ff4b20;font-weight: 900;" type="submit" value="SUBMIT" onclick="return validateSignup()">
+                        <input name="submit" class="login-btn" style="width: 30%; background-color: #ff4b20;border-color: #ff4b20;font-weight: 900;" type="submit" value="SUBMIT">
                        </form>
                     </div>
                 </div>

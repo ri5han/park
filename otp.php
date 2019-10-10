@@ -3,6 +3,12 @@
     session_start();
     require('include/dbconnect.php');
     date_default_timezone_set('Asia/Kolkata');
+
+    if(isset($_SESSION['username']) == false) {
+        echo '<body style="display:none;"></body>';
+        echo "<script>alert('You are not authenticated. Please login or signup.');</script>";
+    }
+
     $startTime = $_SESSION['startTime'];
     $endTime = $_SESSION['endTime'];
     

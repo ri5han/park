@@ -11,12 +11,13 @@
     "orientation": "portrait-primary",
 
     "icons": [{
-      "src": "images/touch/homescreen48.png",
+      "src": "images/logo.png",
       "sizes": "48x48",
       "type": "image/png"
     }, {
-      "src": "images/touch/homescreen72.png",
+      "src": "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
       "sizes": "72x72",
+      "count": "25",
       "type": "image/png"
     }]
   }
