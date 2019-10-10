@@ -1,3 +1,57 @@
+<?php
+
+    session_start();
+    $username = $_SESSION['username'];
+    require('include/dbconnect.php');
+    date_default_timezone_set('Asia/Kolkata');
+
+    if($_GET['spaceId']){
+        $spaceId = $_GET['spaceId'];
+        $_SESSION['spaceId'] = $spaceId;
+    } else {
+        $spaceId = NULL;
+    }
+
+    $query = "SELECT * FROM users WHERE username='$username'";
+    $result = mysqli_query($conn,$query);
+    $users = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    
+    $query = "SELECT id,price,available FROM spaces WHERE id='$spaceId'";
+    $result = mysqli_query($conn,$query);
+    $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+    $total = $spaces[0]['price']+0.5+1.5;
+    $_SESSION['total'] = $total;
+
+    if(isset($_POST['wallet'])) {
+        $balance = $users[0]['balance'] - $_SESSION['total']; 
+        $queryDist = "UPDATE users SET balance='$balance' WHERE username='$username'";
+        $updateDistance = mysqli_query($conn, $queryDist);
+        //setcookie('spaceId',$spaceId,time()+864000,'/');
+        
+        $_SESSION['startTime'] = date('h:i');
+        $endTime = strtotime($_SESSION['startTime']) + 60*60;
+        $_SESSION['endTime'] = date('h:i', $endTime);
+        header('Location: otp.php');
+
+    } elseif(isset($_POST['card'])) {
+        //setcookie('spaceId',$spaceId,time()+864000,'/');
+        $_SESSION['startTime'] = date('h:i');
+        $endTime = strtotime($_SESSION['startTime']) + 60*60;
+        $_SESSION['endTime'] = date('h:i', $endTime);
+        header('Location: otp.php');
+
+    } elseif(isset($_POST['netbanking'])) {
+        //setcookie('spaceId',$spaceId,time()+864000,'/');
+        $_SESSION['startTime'] = date('h:i');
+        $endTime = strtotime($_SESSION['startTime']) + 60*60;
+        $_SESSION['endTime'] = date('h:i', $endTime);
+        header('Location: otp.php');
+
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,50 +94,32 @@
             setTimeout(carousel, 2000); // Change image every 2 seconds
         }
 
-        var cardinput = document.getElementById("pay-card-details");
-        var netinput = document.getElementById("pay-net-details");
-        var walletinput = document.getElementById("pay-wallet-details");
-        cardinput.setAttribute("style", "display:none;");
-        netinput.setAttribute("style", "display:none;");
-
-        function onlyWallet() {
-            cardinput.setAttribute("style", "display:none;");
-            netinput.setAttribute("style", "display:none;");
-        }
-
-        function onlyCard() {
-            walletinput.setAttribute("style", "display:none;");
-            netinput.setAttribute("style", "display:none;");
-        }
-
-        function onlyNet() {
-            netinput.setAttribute("style", "display:block;");
-            cardinput.setAttribute("style", "display:none;");
-            walletinput.setAttribute("style", "display:none;");
-        }
     </script>
 
     <div class="otp-bg">
-        <nav id="navbar">
+    <nav id="navbar">
+            <!-- logo is specified below -->
             <img class="logo" src="images\logo.png" alt="park">
             <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="signup.html">SIGN UP</a></li>
-                <li><a href="login.html">LOGIN</a></li>
+                <li><a style="color: #ff4b20" href="listing.php">HOME</a></li>
+                <!-- <li><a href="about.html">ABOUT</a></li> -->
+                <li><a href="contact.php">CONTACT</a></li>
+                <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
+                <li><a href="login.php?logout=1">LOGOUT</a></li>
             </ul>
         </nav>
+
         <nav class="topnav" id="myTopnav">
             <img class="logo" src="images\logo.png" alt="park">
             <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
-
-            <a href="#home">HOME</a>
-            <a href="#news">ABOUT</a>
-            <a href="#contact">CONTACT</a>
-            <a href="#about">SIGNUP</a>
-            <a href="#about">LOGIN</a>
+            
+            <a href="listing.php">HOME</a>
+            <!-- <a href="#news">ABOUT</a> -->
+            <a href="contact.php">CONTACT</a>
+            <a href="#"><?php echo $_SESSION['username']; ?></a>
+            <a href="login.php?logout=1">LOGOUT</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
@@ -99,33 +135,42 @@
                         <br>
                         <div class="pay1">
                             <div style="padding-left: 5%; width: 100%;">
-                                <input onclick="onlyWallet()" type="radio" id="pay-wallet">&nbsp;&nbsp;&nbsp;<label><b>Pay by <span style="color: #ff4b20;">Payinzo Wallet</span></b></label>
+                            <form action="payment.php" method="post">
+
+                                &nbsp;&nbsp;&nbsp;<label><b>Pay by <span style="color: #ff4b20;">Payinzo Wallet</span></b></label>
                                 <div id="pay-wallet-details">
-                                    <h4 style="padding-left: 5%;">Wallet balance: Rs. 150 &nbsp;<input class="btn btn-primary" type="submit" value="PAY"></h4>
+                                    <h4 style="padding-left: 5%;">Wallet balance: Rs. <?php echo $users[0]['balance']; ?> &nbsp;
+                                    <input name="wallet" class="btn btn-primary" type="submit" value="PAY"></h4>
                                 </div>
+                            </form>
                                 <br><br>
                                 <div>
-                                    <input onclick="onlyCard()" type="radio" id="pay-card">&nbsp;&nbsp;&nbsp;<label><b>Pay by <span style="color: #ff4b20;">Card</span></b></label>
+                            <form action="payment.php" method="post">
+                                    &nbsp;&nbsp;&nbsp;<label><b>Pay by <span style="color: #ff4b20;">Card</span></b></label>
                                     <br>
                                     <div id="pay-card-details" style="padding-left: 5%">
-                                        <input type="number" placeholder="Card Number">
-                                        <input type="number" placeholder="Expiry date">
-                                        <input type="number" placeholder="CVV">
+                                        <input type="number" placeholder="Card Number" required>
+                                        <input type="number" placeholder="Expiry date" required>
+                                        <input type="number" placeholder="CVV" required>
                                         &nbsp;
-                                        <input class="btn btn-primary" type="submit" value="PAY">
+                                        <input name="card" class="btn btn-primary" type="submit" value="PAY">
                                     </div>
+                            </form>
                                 </div>
                                 <br><br>
                                 <div>
-                                    <input onclick="onlyNet()" type="radio" id="pay-net">&nbsp;&nbsp;&nbsp;<label><b>Pay by <span style="color: #ff4b20;">Net Banking</span></b></label>
+                                <form action="payment.php" method="post">
+                                    &nbsp;&nbsp;&nbsp;<label><b>Pay by <span style="color: #ff4b20;">Net Banking</span></b></label>
                                     <div id="pay-net-details" style="padding-left: 5%;">
-                                        <input type="number" placeholder="Account Number">
-                                        <input type="text" placeholder="Password">
+                                        <input type="number" placeholder="Account Number" required>
+                                        <input type="password" placeholder="Password" required>
                                         &nbsp;
-                                        <input class="btn btn-primary" type="submit" value="PAY">
+                                        <input name="netbanking" class="btn btn-primary" type="submit" value="PAY">
                                     </div>
+                                </form>
                                 </div>
                                 <br>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -140,18 +185,19 @@
                         <div class="pay1">
                             <div style="padding-left: 5%;">
                                 <b>Time :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                <input type="number" placeholder="Hrs" style="width:15%; font-weight: bold;">
-                                <input type="number" placeholder="Mins" style="width:15%; font-weight: bold;">&nbsp;&nbsp;&nbsp;
-                                <button type="button" style="width: 30%; background-color: #ff4b20;border:2px solid black; border-radius: 10px;"><b>Get Price</b></button>
-                                <br><br>
-                                <p><b>Parking Lot no.:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G101</p>
-                                <br>
-                                <p> Base Price :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;50 / hr</p>
-                                <p> Service Tax :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;&nbsp;&nbsp;1.5</p>
-                                <p> Processing Fee :&nbsp;&nbsp;&nbsp;&nbsp; Rs.&nbsp;&nbsp;0.5</p>
-                                <hr>
-                                <p><b>Total Amount </b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><span style="color: #ff4b20;">Rs.&nbsp;&nbsp;55.0</span></b></p>
-                                <input type="button" class="but" value="Reserve">
+                                <form action="payment.php" method="post">
+                                    <input name="hours" type="number" placeholder="Hrs" style="width:25%; font-weight: bold;">
+                                    <button name="calPrice" type="submit" style="width: 30%; background-color: #ff4b20;border:2px solid black; border-radius: 10px;"><b>Get Price</b></button>
+                                    <br><br>
+                                    <p><b>Parking Lot ID.:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $spaces[0]['id']; ?></p>
+                                    <br>
+                                    <p> Base Price :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;<?php echo $spaces[0]['price']; ?>/ hr</p>
+                                    <p> Service Tax :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;&nbsp;&nbsp;1.5</p>
+                                    <p> Processing Fee :&nbsp;&nbsp;&nbsp;&nbsp; Rs.&nbsp;&nbsp;0.5</p>
+                                    <hr>
+                                    <p><b>Total Amount </b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><span style="color: #ff4b20;">Rs.&nbsp;&nbsp;<?php echo $total; ?></span></b></p>
+                                    
+                                </form>
                             </div>
                         </div>
                     </div>

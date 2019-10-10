@@ -1,3 +1,26 @@
+<?php
+
+    session_start();
+    require('include/dbconnect.php');
+    date_default_timezone_set('Asia/Kolkata');
+    $startTime = $_SESSION['startTime'];
+    $endTime = $_SESSION['endTime'];
+    
+    $spaceId = $_SESSION['spaceId'];
+    echo $spaceId;
+    $username = $_SESSION['username'];
+    $otp = rand(10000,99999);
+    $_SESSION['otp'] = $otp;
+
+    $query = "UPDATE users SET otp='$otp' WHERE username='$username'";
+    $result = mysqli_query($conn,$query);
+
+    $query = "SELECT * FROM spaces WHERE id='$spaceId'";
+    $result = mysqli_query($conn,$query);
+    $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,47 +36,63 @@
 
 <body>
     <div class="otp-bg">
-        <nav id="navbar">
+    <nav id="navbar">
+            <!-- logo is specified below -->
             <img class="logo" src="images\logo.png" alt="park">
             <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="signup.html">SIGN UP</a></li>
-                <li><a href="login.html">LOGIN</a></li>
+                <li><a style="color: #ff4b20" href="listing.php">HOME</a></li>
+                <!-- <li><a href="about.html">ABOUT</a></li> -->
+                <li><a href="contact.php">CONTACT</a></li>
+                <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
+                <li><a href="login.php?logout=1">LOGOUT</a></li>
             </ul>
+        </nav>
+
+        <nav class="topnav" id="myTopnav">
+            <img class="logo" src="images\logo.png" alt="park">
+            <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
+            
+            <a href="listing.php">HOME</a>
+            <!-- <a href="#news">ABOUT</a> -->
+            <a href="contact.php">CONTACT</a>
+            <a href="#"><?php echo $_SESSION['username']; ?></a>
+            <a href="login.php?logout=1">LOGOUT</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
         </nav>
     
         <div class="otp-add">
             <div>
-                <h2 style="color: #ff4b20;">Growels 101</h2><h4 style="color: #ff4b20;">Kandivali East</h4>
-                <p>Akurli Road, Off,</p><p> Near Western Express Hwy,</p><p> Samata Nagar, Police Station.</p>
+                <h2 style="color: #ff4b20;"><?php echo $spaces[0]['name']; ?></h2><h4 style="color: #ff4b20;"><?php echo $spaces[0]['city']; ?></h4>
+                <p><?php echo $spaces[0]['address1']; ?>,</p><p> <?php echo $spaces[0]['address2']; ?>,</p><p> <?php echo $spaces[0]['address3']; ?>.</p>
             </div>
             <div class="otp-start-time">
                 <h4>Start Time</h4>
-                <h3 style="text-align: center; color: #ff4b20;">2:30</h3>
+                <h3 style="text-align: center; color: #ff4b20;"><?php echo $startTime; ?></h3>
             </div>
             <div class="otp-start-time">
                 <h4>End Time</h4>
-                <h3 style="text-align: center; color: #ff4b20;">5:30</h3>
+                <h3 style="text-align: center; color: #ff4b20;"><?php echo $endTime; ?></h3>
             </div>
             <div class="otp-start-time">
-                <h4>Parking Slot</h4>
-                <h3 style="text-align: center; color: #ff4b20;">51B</h3>
+                <h4>Parking Space ID</h4>
+                <h3 style="text-align: center; color: #ff4b20;"><?php echo $spaces[0]['id']; ?></h3>
             </div>
         
             <div class="otp-start-time">
                 <h4>Distance</h4>
-                <h3 style="text-align: center;">700m</h3>
+                <h3 style="text-align: center;"><?php echo $spaces[0]['distance']; ?></h3>
             </div>
             <div class="otp-start-time">
                 <h4>Amount Paid</h4>
-                <h3 style="text-align: center;">Rs. 75</h3>
+                <h3 style="text-align: center;">Rs. <?php echo $_SESSION['total']; ?></h3>
             </div>
             <div class="otp-start-time">
                 <br><br>
-                <a style="background-color: #ff4b20; color: white; padding: 5px;text-decoration: none;" href="#">OPEN MAP</a>
+                <?php echo $spaces[0]['map']; ?>
             </div>
             
         </div> 
@@ -61,7 +100,7 @@
         <div class="otp-add">
             <div class="otp-start-time otp">
                 <h4>Your OTP for this reservation is:</h4>
-                <h1 style="text-align: center; color: #ff4b20;">55489</h1>
+                <h1 style="text-align: center; color: #ff4b20;"><?php echo $otp; ?></h1>
             </div> 
         </div>
     </div> 

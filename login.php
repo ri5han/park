@@ -1,6 +1,15 @@
 <?php
     session_start();
     require("include/dbconnect.php");
+    $_GET['logout'] = 0;
+    if($_GET['logout']==1) {
+        unset($_SESSION['username']);
+        unset($_SESSION['otp']);
+        session_unset();
+        session_destroy();
+        echo "<script>alert('You are logged out.');</script>";
+        header('Location: login.php');
+    }
 
     if(isset($_POST['login'])) {
         $username = $_POST['username'];
@@ -14,6 +23,7 @@
             $users = mysqli_fetch_all($result,MYSQLI_ASSOC);
             if(password_verify($password,$users[0]['password'])) {
                 $_SESSION['username'] = $username;
+                setcookie('username',$username,time()+86400);
                 header('Location: listing.php');
                 // echo "Logged in";
                 // echo $_SESSION['username'];

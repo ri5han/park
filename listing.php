@@ -2,14 +2,54 @@
     session_start();
     require('include/dbconnect.php');
 
+    function vincentyGreatCircleDistance($latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius) {
+    // convert from degrees to radians
+        $latFrom = deg2rad($latitudeFrom);
+        $lonFrom = deg2rad($longitudeFrom);
+        $latTo = deg2rad($latitudeTo);
+        $lonTo = deg2rad($longitudeTo);
+  
+        $lonDelta = $lonTo - $lonFrom;
+        $a = pow(cos($latTo) * sin($lonDelta), 2) +
+            pow(cos($latFrom) * sin($latTo) - sin($latFrom) * cos($latTo) * cos($lonDelta), 2);
+        $b = sin($latFrom) * sin($latTo) + cos($latFrom) * cos($latTo) * cos($lonDelta);
+  
+        $angle = atan2(sqrt($a), $b);
+        return $angle * $earthRadius;
+    }
+    
     if(isset($_SESSION['username']) == false) {
         echo '<body style="display:none;"></body>';
         echo "<script>alert('You are not authenticated. Please login or signup.');</script>";
     }
     
-    
+    $userLat = 19.2428309;
+    $userLong = 72.8539441;
 
-?>
+    //Sorting nearest space in database
+    // $query = "SELECT COUNT(*) FROM spaces;";
+    // $result = mysqli_query($conn, $query);
+    // $spaceCount = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    // $spaceCount = $spaceCount[0]['COUNT(*)'];
+
+    $queryLatLng = "SELECT id,lat,lng FROM spaces";
+    $result = mysqli_query($conn, $queryLatLng);
+    $latLng = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    
+    foreach($latLng as $cords) {
+        $distv = vincentyGreatCircleDistance($userLat,$userLong,$cords['lat'],$cords['lng'],6371000);
+        $distv = $distv/1000;
+        //$distv = getDistanceBetweenPointsNew($userLat,$userLong,$latLng[$i]["lat"],$latLng[$i]["lng"]);
+        $id = $cords['id'];
+        $queryDist = "UPDATE spaces SET distance='$distv' WHERE id='$id'";
+        $updateDistance = mysqli_query($conn, $queryDist);
+    }
+
+    $queryList = "SELECT * FROM spaces ORDER BY distance";
+    $result = mysqli_query($conn,$queryList);
+    $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+?>  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,88 +134,40 @@
         </div>
 
         <div class="listing">
+        <?php foreach($spaces as $space): ?>
             <div class="list1">
                 <div class="list1a">
-                    <img src="images\growels.jpg">
+                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($space['image']).'">'; ?>
                 </div>
                 <div class="detail">
                     <div class="list1b">
-                        <h2>Growels 101</h2>
-                        <h4>Akruli Road,</h4>
-                        <h4>Samta Nagar,</h4>
-                        <h4>Kandivali East.</h4>
+                        <h2><?php echo $space['name']; ?></h2>
+                        <h4><?php echo $space['address1']; ?>,</h4>
+                        <h4><?php echo $space['address2']; ?>,</h4>
+                        <h4><?php echo $space['address3']; ?>.</h4>
 
                     </div>
                     <div class="list1c">
                         <div class="amenities">
                             <p>Amenties:</p>
-                            <i class="fa fa-wifi" aria-hidden="true"></i>
-                            <i class="fa fa-wheelchair" aria-hidden="true"></i>
-
-                            <i class="fa fa-bolt" aria-hidden="true"></i>
+                            <?php if($space['wifi']==1): ?>
+                                <i class="fa fa-wifi" aria-hidden="true"></i>
+                            <?php endif; ?>
+                            <?php if($space['handicap']==1): ?>
+                                <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                            <?php endif; ?>
+                            <?php if($space['charging']==1): ?>
+                                <i class="fa fa-bolt" aria-hidden="true"></i>
+                            <?php endif; ?>
                         </div>
-                        <p>Distance:&nbsp;&nbsp;&nbsp;100m</p>
+                        <p>Distance:&nbsp;&nbsp;&nbsp;<?php echo $space['distance']; ?>Km</p>
                     </div>
                     <div class="View">
-                        <button type="button">View Details</button>
+                        <button><a href="details.php?spaceId=<?php echo $space['id']; ?>" type="button">VIEW</a></button>
                     </div>
                 </div>
             </div>
-            <div class="list1">
-                <div class="list1a">
-                    <img src="images\growels.jpg">
-                </div>
-                <div class="detail">
-                    <div class="list1b">
-                        <h2>Growels 101</h2>
-                        <h4>Akruli Road,</h4>
-                        <h4>Samta Nagar,</h4>
-                        <h4>Kandivali East.</h4>
-
-                    </div>
-                    <div class="list1c">
-                        <div class="amenities">
-                            <p>Amenties:</p>
-                            <i class="fa fa-wifi" aria-hidden="true"></i>
-                            <i class="fa fa-wheelchair" aria-hidden="true"></i>
-
-                            <i class="fa fa-bolt" aria-hidden="true"></i>
-                        </div>
-                        <p>Distance:&nbsp;&nbsp;&nbsp;100m</p>
-                    </div>
-                    <div class="View">
-                        <button type="button">View Details</button>
-                    </div>
-                </div>
-            </div>
-            <div class="list1">
-                <div class="list1a">
-                    <img src="images\growels.jpg">
-                </div>
-                <div class="detail">
-                    <div class="list1b">
-                        <h2>Growels 101</h2>
-                        <h4>Akruli Road,</h4>
-                        <h4>Samta Nagar,</h4>
-                        <h4>Kandivali East.</h4>
-
-                    </div>
-                    <div class="list1c">
-                        <div class="amenities">
-                            <p>Amenties:</p>
-                            <i class="fa fa-wifi" aria-hidden="true"></i>
-                            <i class="fa fa-wheelchair" aria-hidden="true"></i>
-
-                            <i class="fa fa-bolt" aria-hidden="true"></i>
-                        </div>
-                        <p>Distance:&nbsp;&nbsp;&nbsp;100m</p>
-                    </div>
-                    <div class="View">
-                        <button type="button">View Details</button>
-                    </div>
-                </div>
-
-            </div>
+        <?php endforeach; ?>
             <br>
             <br>
         </div>

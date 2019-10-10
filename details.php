@@ -1,3 +1,16 @@
+<?php
+
+    session_start();
+    require('include/dbconnect.php');
+
+    $spaceId = $_GET['spaceId'];
+    
+    $queryList = "SELECT * FROM spaces WHERE id='$spaceId'";
+    $result = mysqli_query($conn,$queryList);
+    $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,28 +32,33 @@
 <body>
     <div class="bg">
 <!-- nav semantic elements -->
-        <nav id="navbar">
+<nav id="navbar">
             <!-- logo is specified below -->
-            <img class="logo" src="images\logo.png" alt="park" style="width:90px;"><h1><span style="color: #ff4b20; font-weight: bold">Park</span><span>inzo</span></h1>
+            <img class="logo" src="images\logo.png" alt="park">
+            <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+
             <ul>
-                <li><a style="color: #ff4b20" href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="signup.html">SIGN UP</a></li>
-                <li><a href="login.html">LOGIN</a></li> 
-            </ul> 
+                <li><a style="color: #ff4b20" href="listing.php">HOME</a></li>
+                <!-- <li><a href="about.html">ABOUT</a></li> -->
+                <li><a href="contact.php">CONTACT</a></li>
+                <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
+                <li><a href="login.php?logout=1">LOGOUT</a></li>
+            </ul>
         </nav>
-            <nav class="topnav" id="myTopnav">
-                <img class="logo" src="images\logo.png" alt="park"><h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
-                <a href="#home">HOME</a>
-                <a href="#news">ABOUT</a>
-                <a href="#contact">CONTACT</a>
-                <a href="#about">SIGNUP</a>
-                <a href="#about">LOGIN</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+
+        <nav class="topnav" id="myTopnav">
+            <img class="logo" src="images\logo.png" alt="park">
+            <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
+            
+            <a href="listing.php">HOME</a>
+            <!-- <a href="#news">ABOUT</a> -->
+            <a href="contact.php">CONTACT</a>
+            <a href="#"><?php echo $_SESSION['username']; ?></a>
+            <a href="login.php?logout=1">LOGOUT</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
-                </a>
-            </nav>
+            </a>
+        </nav>
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
@@ -52,14 +70,14 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="images/rishan.jpg" alt="First slide">
+                                    <?php echo '<img class="d-block w-100" src="data:image/jpeg;base64,'.base64_encode($spaces[0]['image']).'" alt="First slide">'; ?>
                                 </div>
-                                <div class="carousel-item">
+                                <!-- <div class="carousel-item">
                                     <img class="d-block w-100" src="images/nikhil.jpg" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
                                     <img class="d-block w-100" src="images/rahul1.jpeg" alt="Third slide">
-                                </div>
+                                </div> -->
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -72,14 +90,19 @@
                         </div><br><br>
                 </div>
                 <div class="col-md-7">
-                    <h3 class="newarrival text-center">GROWELS 101</h3>
-                    <h2 style="margin-left: 10px; ">Akruli Road,Samta Nagar, Kandivali East</h2>
-                    <p><b>Availability:&nbsp;&nbsp;&nbsp;</b> Vacant</p>
+                    <h3 class="newarrival text-center"><?php echo $spaces[0]['name']; ?></h3>
+                    <h2 style="margin-left: 10px; "><?php echo $spaces[0]['address1']; ?>,<?php echo $spaces[0]['address2']; ?>, <?php echo $spaces[0]['address3']; ?></h2>
                     <p><b>Condition:&nbsp;&nbsp;&nbsp;</b> New </p>
                     <p><b>Amenities:&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                    <i class="fa fa-wifi" aria-hidden="true"></i>
-                    <i class="fa fa-wheelchair" aria-hidden="true"></i>
-                    <i class="fa fa-bolt" aria-hidden="true"></i></p>
+                    <?php if($spaces[0]['wifi']==1): ?>
+                                <i class="fa fa-wifi" aria-hidden="true"></i>
+                            <?php endif; ?>
+                            <?php if($spaces[0]['handicap']==1): ?>
+                                <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                            <?php endif; ?>
+                            <?php if($spaces[0]['charging']==1): ?>
+                                <i class="fa fa-bolt" aria-hidden="true"></i>
+                            <?php endif; ?></p>
                     <p><b>Ratings :&nbsp;&nbsp;&nbsp;&nbsp;</b>
                         <i class="stars">
                             <span class="fa fa-star checked"></span>
@@ -89,8 +112,9 @@
                             <span class="fa fa-star"></span>
                         </i>
                     </p>
-                    <p><b>Price:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><span style="color: #ff4b20; font-style: italic;">Rs.&nbsp;50 per hour</span></p>
-                    <p><b>Parking Capacity:</b>&nbsp;&nbsp;80 lots</p>
+                    <p><b>Price:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><span style="color: #ff4b20; font-style: italic;">Rs.&nbsp;<?php echo $spaces[0]['price']; ?> per hour</span></p>
+                    <p><b>Parking Capacity:</b>&nbsp;&nbsp;<?php echo $spaces[0]['available']; ?> lots</p>
+                    <button><a href="payment.php?spaceId=<?php echo $spaces[0]['id']; ?>&pay=1">PAY</a></button>
                 </div>
             </div>
         </div>

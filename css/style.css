@@ -1258,8 +1258,8 @@ aside{
     .search1 fieldset{
     width: 120%;
     height: 70px;
-    margin-left: 380%;
-    margin-top: 6%;
+    margin-left: 620%;
+    margin-top: 10%;
     border-radius: 15px;
 
     }
@@ -1363,6 +1363,10 @@ aside{
     width: 120%;
     height: 40px;
     background-color: #ff4b20;
+    }
+    .View button a {
+        color: white;
+        text-decoration: none;
     }
     .top{
     background-color: #ff9980;

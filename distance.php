@@ -33,8 +33,8 @@ function vincentyGreatCircleDistance($latitudeFrom, $longitudeFrom, $latitudeTo,
     return $angle * $earthRadius;
   }
 
-  $distv = vincentyGreatCircleDistance(19.2777233,72.8654652,19.2804974,72.8553088,6371000);
-  $disth = haversineGreatCircleDistance(19.2777233,72.8654652,19.2804974,72.8553088,6371000);
+  $distv = vincentyGreatCircleDistance(19.2428309,72.8539441,19.2040695,72.8585024,6371000);
+  $disth = haversineGreatCircleDistance(19.2428309,72.8539441,19.2040695,72.8585024,6371000);
   
   echo $distv; 
   echo "<br>";
