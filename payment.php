@@ -129,7 +129,7 @@
                 <i class="fa fa-bars"></i>
             </a>
         </nav>
-
+        <div class="section-border-o"></div><br>
         <div>
             <div class="pay1">
                 <div>
@@ -189,18 +189,18 @@
                         <br>
                         <div class="pay1">
                             <div style="padding-left: 5%;">
-                                <b>Time :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                                <!-- <b>Time :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
                                 <form action="payment.php" method="post">
                                     <input name="hours" type="number" placeholder="Hrs" style="width:25%; font-weight: bold;">
                                     <button name="calPrice" type="submit" style="width: 30%; background-color: #ff4b20;border:2px solid black; border-radius: 10px;"><b>Get Price</b></button>
-                                    <br><br>
+                                    <br><br> -->
                                     <p><b>Parking Lot ID.:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $spaces[0]['id']; ?></p>
                                     <br>
-                                    <p> Base Price :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;<?php echo $spaces[0]['price']; ?>/ hr</p>
-                                    <p> Service Tax :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;&nbsp;&nbsp;1.5</p>
+                                    <p> Base Price :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;<?php echo $spaces[0]['price']; ?>/ hr</p>
+                                    <p> Service Tax :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;1.5</p>
                                     <p> Processing Fee :&nbsp;&nbsp;&nbsp;&nbsp; Rs.&nbsp;&nbsp;0.5</p>
                                     <hr>
-                                    <p><b>Total Amount </b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><span style="color: #ff4b20;">Rs.&nbsp;&nbsp;<?php echo $total; ?></span></b></p>
+                                    <p><b>Total Amount </b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><span style="color: #ff4b20;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $total; ?></span></b></p>
                                     
                                 </form>
                             </div>
@@ -213,7 +213,7 @@
         <br>
     </div>
 
-
+    <div class="section-border-o"></div><br>
     <footer>
         <div id="footer">
             <div style="color: #ff4b20;" id="left-footer">

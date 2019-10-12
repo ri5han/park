@@ -1,6 +1,7 @@
 <?php
     session_start();
     require("include/dbconnect.php");
+
     $_GET['logout'] = 0;
     if($_GET['logout']==1) {
         unset($_SESSION['username']);
@@ -24,7 +25,7 @@
             if(password_verify($password,$users[0]['password'])) {
                 $_SESSION['username'] = $username;
                 setcookie('username',$username,time()+86400);
-                header('Location: listing.php');
+                header('Location: getLocation.php');
                 // echo "Logged in";
                 // echo $_SESSION['username'];
             } else {

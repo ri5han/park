@@ -1,4 +1,5 @@
 <?php
+
     session_start();
     require('include/dbconnect.php');
 
@@ -22,9 +23,14 @@
         echo '<body style="display:none;"></body>';
         echo "<script>alert('You are not authenticated. Please login or signup.');</script>";
     }
+
+    if(isset($_SESSION['latitude']) && isset($_SESSION['longitude'])) {
+        $userLat = $_SESSION['latitude'];
+        $userLong = $_SESSION['longitude'];
+    }
     
-    $userLat = 19.2428309;
-    $userLong = 72.8539441;
+    // $userLat = 19.2428309;
+    // $userLong = 72.8539441;
 
     //Sorting nearest space in database
     // $query = "SELECT COUNT(*) FROM spaces;";
@@ -59,15 +65,17 @@
     <meta charset="UTF-8">
     <link rel="icon" href="images/logo.png">
     <title>Parkinzo | Welcome</title>
-    <link rel="stylesheet" type="text/css" href="css/stylenew.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 </head>
 
 <body>
+    <p><span class="label">Your location:</span> <span id="location"></span></p>
 
     <!-- this is audio file to play on startup-->
     <audio autoplay>
@@ -113,12 +121,7 @@
                         placeholder="Where do you want to park?">
                 </fieldset>
             </div>
-            <div class="search1">
-                <fieldset>
-                    <legend>Arriving On</legend>
-                    <input type="date" placeholder="Start Time">
-                </fieldset>
-            </div>
+            
             <!-- <div class="search2">
                 <fieldset>
                     <legend>Leaving On</legend>
