@@ -1,23 +1,23 @@
 {
-    "name": "Parkinzo",
-    "short_name": "Parkz",
-    "start_url": "http://www.parkinzo.com/",
-    "display": "standalone",
-    "theme_color": "#ff4b20",
-    "background_color": "#fff7f4",
-    "description": "Best parking spaces at your finger tips.",
-    "categories": ["parking","automobile","transport"],
-    "lang": "en-US",
-    "orientation": "portrait-primary",
+  "name": "Parkinzo",
+  "short_name": "Parkz",
+  "start_url": "http://www.parkinzo.com/",
+  "display": "standalone",
+  "theme_color": "#ff4b20",
+  "background_color": "#fff7f4",
+  "description": "Best parking spaces at your finger tips.",
+  "categories": ["parking", "automobile", "transport"],
+  "lang": "en-US",
+  "orientation": "portrait-primary",
 
-    "icons": [{
-      "src": "images/logo.png",
-      "sizes": "48x48",
-      "type": "image/png"
-    }, {
-      "src": "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
-      "sizes": "72x72",
-      "count": "25",
-      "type": "image/png"
-    }]
-  }
+  "icons": [{
+    "src": "images/logo.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  }, {
+    "src": "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+    "sizes": "72x72",
+    "count": "25",
+    "type": "image/png"
+  }]
+}

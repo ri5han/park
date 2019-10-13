@@ -44,7 +44,7 @@
 
 <body>
     <div class="otp-bg">
-    <nav id="navbar">
+        <nav id="navbar">
             <!-- logo is specified below -->
             <img class="logo" src="images\logo.png" alt="park">
             <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
@@ -61,7 +61,7 @@
         <nav class="topnav" id="myTopnav">
             <img class="logo" src="images\logo.png" alt="park">
             <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
-            
+
             <a href="listing.php">HOME</a>
             <!-- <a href="#news">ABOUT</a> -->
             <a href="contact.php">CONTACT</a>
@@ -71,11 +71,14 @@
                 <i class="fa fa-bars"></i>
             </a>
         </nav>
-    
+
         <div class="otp-add">
             <div>
-                <h2 style="color: #ff4b20;"><?php echo $spaces[0]['name']; ?></h2><h4 style="color: #ff4b20;"><?php echo $spaces[0]['city']; ?></h4>
-                <p><?php echo $spaces[0]['address1']; ?>,</p><p><?php echo $spaces[0]['address2']; ?>,</p><p><?php echo $spaces[0]['address3']; ?>.</p>
+                <h2 style="color: #ff4b20;"><?php echo $spaces[0]['name']; ?></h2>
+                <h4 style="color: #ff4b20;"><?php echo $spaces[0]['city']; ?></h4>
+                <p><?php echo $spaces[0]['address1']; ?>,</p>
+                <p><?php echo $spaces[0]['address2']; ?>,</p>
+                <p><?php echo $spaces[0]['address3']; ?>.</p>
             </div>
             <div class="otp-start-time" id="start-time">
                 <h4>Start Time</h4>
@@ -89,7 +92,7 @@
                 <h4>Parking Slot</h4>
                 <h3 style="text-align: center; color: #ff4b20;"><?php echo $spaces[0]['id']; ?></h3>
             </div>
-        
+
             <div class="otp-start-time" id="start-time">
                 <h4>Distance</h4>
                 <h3 style="text-align: center;color: #ff4b20;"><?php echo $spaces[0]['distance']; ?> Km</h3>
@@ -98,24 +101,24 @@
                 <h4>Amount Paid</h4>
                 <h3 style="text-align: center;color: #ff4b20;">Rs. <?php echo $_SESSION['total']; ?></h3>
             </div>
-           
+
             <?php echo $spaces[0]['map']; ?>
-              
+
             <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.222610388061!2d72.85372091490721!3d19.22912765213814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0d6e771d27b%3A0xcfe3c6ecba9c4c92!2sBhandarkar%20Bhavan%2C%20Sundar%20Nagar%2C%20Borivali%20West%2C%20Mumbai%2C%20Maharashtra%20400092!5e0!3m2!1sen!2sin!4v1566710714948!5m2!1sen!2sin" width="380" height="220" frameborder="0" style="border:0;" allowfullscreen="">
             </iframe> -->
-                
-           
-            
-        </div> 
+
+
+
+        </div>
 
         <div class="otp-add">
             <div class="otp-start-time otp">
                 <h4>Your OTP for this reservation is:</h4>
                 <h1 style="text-align: center; color: #ff4b20;"><?php echo $otp; ?></h1>
-            </div> 
+            </div>
         </div>
         <br><br><br>
-    </div> 
+    </div>
 
     <div class="section-border-o"><br></div>
 
@@ -124,7 +127,7 @@
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                <ul style="list-style-type: none;">
+                    <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="index.php">Home</a></li>
@@ -154,20 +157,24 @@
 
 
             <div id="right-footer">
-                <h2 style="color: #ff4b20;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Where are we located ?</h2>
+                <h2 style="color: #ff4b20;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Where are we
+                    located ?</h2>
                 <br>
                 <div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.222610388061!2d72.85372091490721!3d19.22912765213814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0d6e771d27b%3A0xcfe3c6ecba9c4c92!2sBhandarkar%20Bhavan%2C%20Sundar%20Nagar%2C%20Borivali%20West%2C%20Mumbai%2C%20Maharashtra%20400092!5e0!3m2!1sen!2sin!4v1566710714948!5m2!1sen!2sin" width="380" height="220" frameborder="0" style="border:0;" allowfullscreen="">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.222610388061!2d72.85372091490721!3d19.22912765213814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0d6e771d27b%3A0xcfe3c6ecba9c4c92!2sBhandarkar%20Bhavan%2C%20Sundar%20Nagar%2C%20Borivali%20West%2C%20Mumbai%2C%20Maharashtra%20400092!5e0!3m2!1sen!2sin!4v1566710714948!5m2!1sen!2sin"
+                        width="380" height="220" frameborder="0" style="border:0;" allowfullscreen="">
                     </iframe>
                 </div>
             </div>
         </div>
 
-        
+
 
         <div style="background-color: #1c1c1c;text-align:center;">
             <p style="color: white;">&copy;Copyright &nbsp;Parkinzo&nbsp; 2019</p>
         </div>
-    </footer>   
+    </footer>
 </body>
-</html>    
+
+</html>

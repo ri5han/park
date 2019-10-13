@@ -55,7 +55,7 @@
     $result = mysqli_query($conn,$queryList);
     $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
-?>  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +102,7 @@
         <nav class="topnav" id="myTopnav">
             <img class="logo" src="images\logo.png" alt="park">
             <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
-            
+
             <a href="listing.php">HOME</a>
             <!-- <a href="#news">ABOUT</a> -->
             <a href="contact.php">CONTACT</a>
@@ -121,7 +121,7 @@
                         placeholder="Where do you want to park?">
                 </fieldset>
             </div>
-            
+
             <!-- <div class="search2">
                 <fieldset>
                     <legend>Leaving On</legend>
@@ -137,7 +137,7 @@
         </div>
 
         <div class="listing">
-        <?php foreach($spaces as $space): ?>
+            <?php foreach($spaces as $space): ?>
             <div class="list1">
                 <div class="list1a">
                     <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($space['image']).'">'; ?>
@@ -154,13 +154,13 @@
                         <div class="amenities">
                             <p>Amenties:</p>
                             <?php if($space['wifi']==1): ?>
-                                <i class="fa fa-wifi" aria-hidden="true"></i>
+                            <i class="fa fa-wifi" aria-hidden="true"></i>
                             <?php endif; ?>
                             <?php if($space['handicap']==1): ?>
-                                <i class="fa fa-wheelchair" aria-hidden="true"></i>
+                            <i class="fa fa-wheelchair" aria-hidden="true"></i>
                             <?php endif; ?>
                             <?php if($space['charging']==1): ?>
-                                <i class="fa fa-bolt" aria-hidden="true"></i>
+                            <i class="fa fa-bolt" aria-hidden="true"></i>
                             <?php endif; ?>
                         </div>
                         <p>Distance:&nbsp;&nbsp;&nbsp;<?php echo $space['distance']; ?>Km</p>
@@ -170,7 +170,7 @@
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
             <br>
             <br>
         </div>
@@ -194,7 +194,7 @@
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                <ul style="list-style-type: none;">
+                    <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="index.php">Home</a></li>
