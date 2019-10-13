@@ -91,7 +91,7 @@
             <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
 
             <ul>
-                <li><a style="color: #ff4b20" href="listing.php">HOME</a></li>
+                <li><a href="listing.php">HOME</a></li>
                 <!-- <li><a href="about.html">ABOUT</a></li> -->
                 <li><a href="contact.php">CONTACT</a></li>
                 <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
@@ -166,7 +166,7 @@
                         <p>Distance:&nbsp;&nbsp;&nbsp;<?php echo $space['distance']; ?>Km</p>
                     </div>
                     <div class="View">
-                        <button><a href="details.php?spaceId=<?php echo $space['id']; ?>" type="button">VIEW</a></button>
+                        <button><a href="details.php?spaceId=<?php echo $space['id']; ?>">VIEW</a></button>
                     </div>
                 </div>
             </div>
@@ -194,21 +194,21 @@
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                    <ul style="list-style-type: none;">
+                <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="#">Members</a></li>
                     </ul>
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><a href="contact.php">Feedback</a></li>
                         <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>
                 <div class="wrapper">

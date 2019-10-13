@@ -138,21 +138,21 @@ if(isset($_POST['submit'])){
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                    <ul style="list-style-type: none;">
+                <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="#">Members</a></li>
                     </ul>
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><a href="contact.php">Feedback</a></li>
                         <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>
                 <div class="wrapper">

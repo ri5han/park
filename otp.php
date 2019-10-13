@@ -27,6 +27,7 @@
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,6 +36,7 @@
     <link rel="icon" href="images/logo.png">
     <title>Parkinzo | Your OTP</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -48,7 +50,7 @@
             <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
 
             <ul>
-                <li><a style="color: #ff4b20" href="listing.php">HOME</a></li>
+                <li><a href="listing.php">HOME</a></li>
                 <!-- <li><a href="about.html">ABOUT</a></li> -->
                 <li><a href="contact.php">CONTACT</a></li>
                 <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
@@ -73,9 +75,9 @@
         <div class="otp-add">
             <div>
                 <h2 style="color: #ff4b20;"><?php echo $spaces[0]['name']; ?></h2><h4 style="color: #ff4b20;"><?php echo $spaces[0]['city']; ?></h4>
-                <p><?php echo $spaces[0]['address1']; ?>,</p><p> <?php echo $spaces[0]['address2']; ?>,</p><p> <?php echo $spaces[0]['address3']; ?>.</p>
+                <p><?php echo $spaces[0]['address1']; ?>,</p><p><?php echo $spaces[0]['address2']; ?>,</p><p><?php echo $spaces[0]['address3']; ?>.</p>
             </div>
-            <div class="otp-start-time">
+            <div class="otp-start-time" id="start-time">
                 <h4>Start Time</h4>
                 <h3 style="text-align: center; color: #ff4b20;"><?php echo $startTime; ?></h3>
             </div>
@@ -83,23 +85,26 @@
                 <h4>End Time</h4>
                 <h3 style="text-align: center; color: #ff4b20;"><?php echo $endTime; ?></h3>
             </div>
-            <div class="otp-start-time">
-                <h4>Parking Space ID</h4>
+            <div class="otp-start-time" id="start-time">
+                <h4>Parking Slot</h4>
                 <h3 style="text-align: center; color: #ff4b20;"><?php echo $spaces[0]['id']; ?></h3>
             </div>
         
-            <div class="otp-start-time">
+            <div class="otp-start-time" id="start-time">
                 <h4>Distance</h4>
-                <h3 style="text-align: center;"><?php echo $spaces[0]['distance']; ?></h3>
+                <h3 style="text-align: center;color: #ff4b20;"><?php echo $spaces[0]['distance']; ?> Km</h3>
             </div>
             <div class="otp-start-time">
                 <h4>Amount Paid</h4>
-                <h3 style="text-align: center;">Rs. <?php echo $_SESSION['total']; ?></h3>
+                <h3 style="text-align: center;color: #ff4b20;">Rs. <?php echo $_SESSION['total']; ?></h3>
             </div>
-            <div class="otp-start-time">
-                <br><br>
-                <?php echo $spaces[0]['map']; ?>
-            </div>
+           
+            <?php echo $spaces[0]['map']; ?>
+              
+            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.222610388061!2d72.85372091490721!3d19.22912765213814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0d6e771d27b%3A0xcfe3c6ecba9c4c92!2sBhandarkar%20Bhavan%2C%20Sundar%20Nagar%2C%20Borivali%20West%2C%20Mumbai%2C%20Maharashtra%20400092!5e0!3m2!1sen!2sin!4v1566710714948!5m2!1sen!2sin" width="380" height="220" frameborder="0" style="border:0;" allowfullscreen="">
+            </iframe> -->
+                
+           
             
         </div> 
 
@@ -109,28 +114,31 @@
                 <h1 style="text-align: center; color: #ff4b20;"><?php echo $otp; ?></h1>
             </div> 
         </div>
+        <br><br><br>
     </div> 
-<br><br><br>
+
+    <div class="section-border-o"><br></div>
+
     <footer>
         <div id="footer">
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                    <ul style="list-style-type: none;">
+                <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="#">Members</a></li>
                     </ul>
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><a href="contact.php">Feedback</a></li>
                         <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>
                 <div class="wrapper">

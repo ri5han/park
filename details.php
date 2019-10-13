@@ -43,7 +43,7 @@
             <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
 
             <ul>
-                <li><a style="color: #ff4b20" href="listing.php">HOME</a></li>
+                <li><a href="listing.php">HOME</a></li>
                 <!-- <li><a href="about.html">ABOUT</a></li> -->
                 <li><a href="contact.php">CONTACT</a></li>
                 <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
@@ -119,7 +119,7 @@
                     </p>
                     <p><b>Price:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><span style="color: #ff4b20; font-style: italic;">Rs.&nbsp;<?php echo $spaces[0]['price']; ?> per hour</span></p>
                     <p><b>Parking Capacity:</b>&nbsp;&nbsp;<?php echo $spaces[0]['available']; ?> lots</p>
-                    <button><a href="payment.php?spaceId=<?php echo $spaces[0]['id']; ?>&pay=1">PAY</a></button>
+                    <button class="goto"><a style="color: white; text-decoration:none;" href="payment.php?spaceId=<?php echo $spaces[0]['id']; ?>&pay=1">PROCEED</a></button>
                 </div>
             </div>
         </div>
@@ -140,21 +140,21 @@ function myFunction() {
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                    <ul style="list-style-type: none;">
+                <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="#">Members</a></li>
                     </ul>
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><a href="contact.php">Feedback</a></li>
                         <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br>
                 <div class="wrapper">

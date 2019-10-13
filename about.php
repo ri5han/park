@@ -14,29 +14,29 @@
 </head>
 <body>
     <div class="about-bg">
-        <nav id="navbar">
-            <img class="logo" src="images\logo.png" alt="park">
-            <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+    <nav id="navbar">
+            <img class="logo" src="images\logo.png" alt="park"><h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+          
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a style="color: #ff4b20" href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="signup.html">SIGN UP</a></li>
-                <li><a href="login.html">LOGIN</a></li>
-            </ul>
+                <li><a href="index.php">HOME</a></li>
+                <li><a style="color: #ff4b20" href="about.php">ABOUT</a></li>
+                <li><a href="contact.php">CONTACT</a></li>
+                <li><a href="signup.php">SIGN UP</a></li>
+                <li><a href="login.php">LOGIN</a></li> 
+            </ul> 
         </nav>
-        <nav class="topnav" id="myTopnav">
-                <img class="logo" src="images\logo.png" alt="park"><h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
-                
-                <a href="#home">HOME</a>
-                <a href="#news">ABOUT</a>
-                <a href="#contact">CONTACT</a>
-                <a href="#about">SIGNUP</a>
-                <a href="#about">LOGIN</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-                </a>
-        </nav>
+            <nav class="topnav" id="myTopnav">
+            	<img class="logo" src="images\logo.png" alt="park"><h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
+            	
+            	<a href="index.php">HOME</a>
+            	<a style="color: #ff4b20" href="about.php">ABOUT</a>
+            	<a href="contact.php">CONTACT</a>
+            	<a href="signup.php">SIGNUP</a>
+            	<a href="login.php">LOGIN</a>
+  				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    			<i class="fa fa-bars"></i>
+  				</a>
+            </nav>
         <div class="home-bg-overlay">
             <div class="home-bg-content slidein">
                 <h1><span style="color: #ff4b20;">A</span><span>bout</span> &nbsp;<span style="color: #ff4b20;">U</span><span>s</span></h1>
@@ -219,18 +219,18 @@ function myFunction() {
                     <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="#">Members</a></li>
                     </ul>
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><a href="contact.php">Feedback</a></li>
                         <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>
                 <div class="wrapper">

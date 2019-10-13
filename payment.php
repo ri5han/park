@@ -46,30 +46,186 @@
         $_SESSION['endTime'] = date('h:i', $endTime);
         header('Location: otp.php');
 
-    } elseif(isset($_POST['netbanking'])) {
+    } elseif(isset($_POST['add-money'])) {
         //setcookie('spaceId',$spaceId,time()+864000,'/');
-        $_SESSION['startTime'] = date('h:i');
-        $endTime = strtotime($_SESSION['startTime']) + 60*60;
-        $_SESSION['endTime'] = date('h:i', $endTime);
-        header('Location: otp.php');
+        $money = $_POST['money'];
+        $balance = $users[0]['balance'] + $money;
+        $queryDist = "UPDATE users SET balance='$balance' WHERE username='$username'";
+        $updateDistance = mysqli_query($conn, $queryDist);
+        header('Location: payment.php?spaceId');
 
     }
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+    
     <meta charset="UTF-8">
     <link rel="icon" href="images/logo.png">
-    <title>Parkinzo | Welcome</title>
+    <title>Parkinzo | Payment</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<style>
+* {
+  box-sizing: border-box;
+}
 
+.row {
+  display: flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  flex: 25%; /* IE10 */
+  flex: 25%;
+
+}
+
+.col-50 {
+  flex: 50%; /* IE10 */
+  flex: 50%;
+  
+}
+
+.col-75 {
+  flex: 75%; /* IE10 */
+  flex: 75%;
+  
+
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #fff7f4;
+  padding: 5px 20px 15px 20px;
+  border: 2px solid #ff4b20;
+  border-radius: 10px;
+  margin-left: 3%;
+}
+
+.col-25 .container{
+  margin-top: 12%;
+  margin-right: 5%;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #ff4b20;
+  color: white;
+  padding: 8px;
+  margin: 8px;
+  border: none;
+  width: 35%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: black;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+  margin-left: 1%;
+  }
+
+ 
+  .col-75 {
+  padding: 0 22px;
+  }
+
+  h2{
+    font-size: 50px;
+  }
+  
+}
+@media (max-width: 360px) {
+  .container {
+  margin-left: 1%;
+  }
+
+ 
+  .col-75 {
+  padding: 0 22px;
+  }
+
+  h2{
+    font-size: 25px;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+  margin-left: 1%;
+  }
+
+ 
+  .col-75 {
+  padding: 0 22px;
+  }
+
+  h2{
+    font-size: 25px;
+  }
+  
+
+
+ 
+}
+</style>
+</head>
 <body>
     <script>
         function myFunction() {
@@ -81,34 +237,14 @@
             }
         }
     </script>
-    <script>
-        var myIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("one");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            myIndex++;
-            if (myIndex > x.length) {
-                myIndex = 1
-            }
-            x[myIndex - 1].style.display = "block";
-            setTimeout(carousel, 2000); // Change image every 2 seconds
-        }
-
-    </script>
-
     <div class="otp-bg">
-    <nav id="navbar">
+        <nav id="navbar">
             <!-- logo is specified below -->
             <img class="logo" src="images\logo.png" alt="park">
             <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
 
             <ul>
-                <li><a style="color: #ff4b20" href="listing.php">HOME</a></li>
+                <li><a href="listing.php">HOME</a></li>
                 <!-- <li><a href="about.html">ABOUT</a></li> -->
                 <li><a href="contact.php">CONTACT</a></li>
                 <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
@@ -129,111 +265,81 @@
                 <i class="fa fa-bars"></i>
             </a>
         </nav>
-        <div class="section-border-o"></div><br>
-        <div>
-            <div class="pay1">
-                <div>
-                    <div class="pay-add">
-                        <div class="top">
-                            <h3 style="padding-left: 5%;background-color:#ff9980;">PAYMENT METHOD</h3>
-                        </div>
-                        <br>
-                        <div class="pay1">
-                            <div style="padding-left: 5%; width: 100%;">
-                            <form action="payment.php" method="post">
-
-                                &nbsp;&nbsp;&nbsp;<label><b>Pay by <span style="color: #ff4b20;">Payinzo Wallet</span></b></label>
-                                <div id="pay-wallet-details">
-                                    <h4 style="padding-left: 5%;">Wallet balance: Rs. <?php echo $users[0]['balance']; ?> &nbsp;
-                                    <input name="wallet" class="btn btn-primary" type="submit" value="PAY"></h4>
-                                </div>
-                            </form>
-                                <br><br>
-                                <div>
-                            <form action="payment.php" method="post">
-                                    &nbsp;&nbsp;&nbsp;<label><b>Pay by <span style="color: #ff4b20;">Card</span></b></label>
-                                    <br>
-                                    <div id="pay-card-details" style="padding-left: 5%">
-                                        <input type="number" placeholder="Card Number" required>
-                                        <input type="number" placeholder="Expiry date" required>
-                                        <input type="number" placeholder="CVV" required>
-                                        &nbsp;
-                                        <input name="card" class="btn btn-primary" type="submit" value="PAY">
-                                    </div>
-                            </form>
-                                </div>
-                                <br><br>
-                                <div>
-                                <form action="payment.php" method="post">
-                                    &nbsp;&nbsp;&nbsp;<label><b>Pay by <span style="color: #ff4b20;">Net Banking</span></b></label>
-                                    <div id="pay-net-details" style="padding-left: 5%;">
-                                        <input type="number" placeholder="Account Number" required>
-                                        <input type="password" placeholder="Password" required>
-                                        &nbsp;
-                                        <input name="netbanking" class="btn btn-primary" type="submit" value="PAY">
-                                    </div>
-                                </form>
-                                </div>
-                                <br>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="pay-right">
-                        <div class="top">
-                            <h3 style="padding-left: 5%;background-color:#ff9980;">PRICE DETAILS</h3>
-                        </div>
-                        <br>
-                        <div class="pay1">
-                            <div style="padding-left: 5%;">
-                                <!-- <b>Time :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                                <form action="payment.php" method="post">
-                                    <input name="hours" type="number" placeholder="Hrs" style="width:25%; font-weight: bold;">
-                                    <button name="calPrice" type="submit" style="width: 30%; background-color: #ff4b20;border:2px solid black; border-radius: 10px;"><b>Get Price</b></button>
-                                    <br><br> -->
-                                    <p><b>Parking Lot ID.:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $spaces[0]['id']; ?></p>
-                                    <br>
-                                    <p> Base Price :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;<?php echo $spaces[0]['price']; ?>/ hr</p>
-                                    <p> Service Tax :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;&nbsp;1.5</p>
-                                    <p> Processing Fee :&nbsp;&nbsp;&nbsp;&nbsp; Rs.&nbsp;&nbsp;0.5</p>
-                                    <hr>
-                                    <p><b>Total Amount </b>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><span style="color: #ff4b20;">Rs.&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $total; ?></span></b></p>
-                                    
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="row">
+  <div class="col-75">
+    <div class="container">  
+        <div class="row">
+        <form method="post" action="payment.php">
+          <div class="col-50">
+            <h2><b>Pay&nbsp;by &nbsp;<span style="color: #ff4b20;">Card</span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-credit-card"></i></b></h2><br>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="Nikhil Mahendra Patil">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth">Expiry Date</label>
+            <input type="text" id="expdate" name="expdate" placeholder="October">
+            <div class="row">
+             
+              <input name="card" type="submit" value="Pay by Card" class="btn">
             </div>
-        </div>
-        <br>
-        <br>
-    </div>
+          </div>
+        </form>
 
-    <div class="section-border-o"></div><br>
-    <footer>
+        <form method="post" action="payment.php">
+          <div class="col-50">
+            <h2><b>Pay&nbsp;by&nbsp;<span style="color: #ff4b20;">Payinzo&nbsp;Wallet</span>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open-o"></i></b></h3><br>
+            <h3 style="margin-left: 5%;"> Wallet Balance: &nbsp;&nbsp;Rs. <?php echo $users[0]['balance']; ?> &nbsp;&nbsp;</h3><br>
+            
+           <label for="money"><i class="fa fa-envelope"></i> Add Money</label>
+           <input type="text" id="cash" name="money" placeholder="Add money">
+
+            <div class="row">
+              <div class="col-50">
+                <input name="add-money" type="submit" value="Add" class="btn">
+                 <input name="wallet" type="submit" value="Pay via Wallet" class="btn">
+              </div>
+             
+            </div>
+          </div>
+        </form>
+        </div>
+        
+    </div>
+  </div>
+  <div class="col-25">
+    <div class="container">
+      <h3>#&nbsp;Price Details<span class="price" style="color:black"></span></h3><hr><br>
+      <p>Parking Lot no.</a> <span class="price"><?php echo $spaces[0]['id']; ?></span></p><br>
+      <p>Base Price</a> <span class="price"><i class="fa fa-inr"></i> <?php echo $spaces[0]['price']; ?>/hr</span></p><br>
+      <p>Service Tax</a> <span class="price"><i class="fa fa-inr"></i> 1.5</span></p><br>
+      <p>Processing Fee</a> <span class="price"><i class="fa fa-inr"></i> 0.5</span></p><br>
+      <hr><br>
+      <p><b>Total Amount</b><span class="price" style="color:black"><b><i class="fa fa-inr"></i>&nbsp;<?php echo $total; ?></b></span></p>
+    </div>
+  </div>
+</div>
+<br>
+<div class="section-border-o"><br></div>
+<footer>
         <div id="footer">
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                    <ul style="list-style-type: none;">
+                <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="#">Members</a></li>
                     </ul>
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><a href="contact.php">Feedback</a></li>
                         <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>
                 <div class="wrapper">
@@ -245,9 +351,6 @@
                     </ul>
                 </div>
             </div>
-
-
-
             <div id="right-footer">
                 <h2 style="color: #ff4b20;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Where are we located ?</h2>
                 <br>
@@ -257,9 +360,11 @@
                 </div>
             </div>
         </div>
-
         <div style="background-color: #1c1c1c;text-align:center;">
             <p style="color: white;">&copy;Copyright &nbsp;Parkinzo&nbsp; 2019</p>
         </div>
     </footer>
-</body></html>
+   
+
+</body>
+</html>

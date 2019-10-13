@@ -616,7 +616,6 @@ aside{
     height: 50vh;
 }
 
-
 .one {
     width: 50%;
     height:40vh;
@@ -795,7 +794,7 @@ aside{
 
 .containers{
     position: relative;
-    width: 1300px;
+    width: 100%;
     height: 300px;
     background: #fff7f4;
     padding-left: 12%;
@@ -873,10 +872,6 @@ aside{
     margin: 0;
     padding: 0;
     color: #fff;
-}
-
-.listing {
-    height:auto;
 }
 /*
 .topbar{
@@ -1021,7 +1016,10 @@ aside{
     height: 40px;
     background-color: #ff4b20;
 }*/
-
+.View button a {
+    color: white;
+    text-decoration:none;
+}
 
 .container{
     margin-top: 4%;
@@ -1060,19 +1058,17 @@ aside{
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0,0,0,0.8);
-    height: 160vh;
+    height: 170vh;
 }
 
 .rentus{
     padding-top: 3%;
-    height: 160vh;
+    height: 170vh;
 }
     .login-align select{
-        width: 80%;
-        font-size: 20px;
-        background-color: transparent;
-        color: #ff4b20;
-        border:2px solid #ff4b20;
+        font-size: 15px;
+        background-color: #ff4b20;
+        border:2px solid black;
         border-radius: 5px;
         margin-top: 2%;
 
@@ -1085,12 +1081,14 @@ aside{
 
     }
     .login-align .ammen label{
-        font-size: 16px;
-        width: 120px;
+        font-size: 15px;
+        width: 80px;
     }
 
     .login-align .ammen input{
         margin-top: 1%;
+        margin-right:10%;
+
     }
 
 
@@ -1150,6 +1148,46 @@ aside{
 }
 
 @media screen and (max-width:1366px) {
+      .otp-bg{
+    width:100%;
+    height:auto;
+    background-color: #fff7f4 ; 
+
+    }
+    .otp-add{
+    
+    width:90%;
+    height:auto;
+    background-color: white;
+    margin-left:4%;
+    margin-top: 40px;
+    padding: 20px;
+    border: 5px solid #ff9980;
+    border-radius: 10px; 
+    }
+    
+    .otp-start-time {
+    margin-left: 5%;
+    margin-top: 5%;
+    
+    
+    }
+     .otp-start-time h3{
+        margin-left: -40%;
+     }
+    
+   
+    .otp {
+    margin-left: 40%;
+    margin-top: 3%;
+    }
+    .home-bg-content h1 {
+        padding: 10% 0 0 5%;
+
+    }
+    .home-bg-content h2 {
+        padding: 0 0 0 5%;
+    }
     #mailto {
         padding-left: 71%;
     }
@@ -1209,7 +1247,7 @@ aside{
     }
     .containers{
         position: relative;
-        width: 1300px;
+        width: 100%;
         height: 300px;
         background: #fff7f4;
         padding-left: 6%;
@@ -1219,9 +1257,9 @@ aside{
     }
     .topbar{
     display: flex;
-   
-    margin-left: 1%;
-    height: 15vh;
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
     margin-top: 1%;
     margin-right: 1%;
     border-width: 3px;
@@ -1229,10 +1267,11 @@ aside{
     border-radius: 10px ;
     background-color: white;
     border-color: #ff4b20;
-
+    padding: 10px;
     }
+
     .search fieldset{
-    width:400%;
+    width:500%;
     height: 70px;
     margin-left: 20%;
     margin-top: 6%;
@@ -1259,11 +1298,11 @@ aside{
 
 
     }
-    .search1 fieldset{
+   /* .search1 fieldset{
     width: 120%;
     height: 70px;
-    margin-left: 620%;
-    margin-top: 10%;
+    margin-left: 380%;
+    margin-top: 6%;
     border-radius: 15px;
 
     }
@@ -1301,20 +1340,25 @@ aside{
     border:none;
     border-bottom: 2px solid #ff4b20;
 
-    }
+    }*/
     .search3 button{
     width: 150%;
-    height: 50px;
-    margin-left: 1000%;
-    margin-top: 30%;
+    height: 40px;
+    margin-left: 1100%;
+    margin-top: 40%;
     font-size: 20px;
     background-color: #ff4b20;
     color: white;
-
+    border-radius: 10px;
     }
+
+    .View{
+        margin-left: 20%;
+    }
+
     .listing{
     
-    height: 90vh;
+    height: auto;
     }
     .list1{
     
@@ -1361,16 +1405,15 @@ aside{
 
     }
     .View button{
-    margin-left: 150%;
-    margin-top: 30%;
+    margin-left: 0%;
+    margin-top: 60%;
     font-size: 25px;
-    width: 120%;
+    width: 160%;
     height: 40px;
+    border-radius: 10px;
+    border: 5px solid #ff4b20;
     background-color: #ff4b20;
-    }
-    .View button a {
-        color: white;
-        text-decoration: none;
+    color:white;
     }
     .top{
     background-color: #ff9980;
@@ -1384,14 +1427,17 @@ aside{
     /*display: flex;*/
     width:120%;
     height:auto;
-    margin-left: 10%;
+    
     }
 
     .pay-right{
     /*display: flex;*/
-    width:120%;
-    height:40vh;
-    margin-left: 170%;
+    width:80%;
+    height:45vh;
+  
+    margin-left:50%;
+    
+        
     }
     .btn{
         font-size: 15px;
@@ -1419,12 +1465,12 @@ aside{
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0,0,0,0.8);
-    height: 200vh;
+    height: 218vh;
     }
 
     .rentus{
     padding-top: 3%;
-    height: 170vh;
+    height: 218vh;
     }
     .login-align select{
         font-size: 20px;
@@ -1452,9 +1498,422 @@ aside{
 
 
     }
+    .goto {
+        width: 25%;
+        font-size: 22px;
+        background-color: #ff4b20;
+        color: white;
+        border-radius: 8px;
+        margin-left: 2%;
+    }
+    .container{
+    margin-top: 4%;
+   
+    }
+
+    .newarrival{
+    background: #ff4b20;
+    width: 80%;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-left: 30px;
+    }
+    .col-md-7 h2{
+        font-size: 25px;
+        margin-top: 5%;
+    } 
+
+    .col-md-7 p{
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    }
+
+    .col-md-7 h2{
+    color: #555;
+    }
+
+    .stars{
+    height: 20px;
+    }
+    footer{
+        height: auto;
+    }
+    .rent-bg-overlay{
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 100%;
+    }
 }
 
+
+
+}
+
+
+@media only screen and (max-width: 1300px){
+    .home-bg-content h1 {
+        padding: 10% 0 0 5%;
+
+    }
+    .home-bg-content h2 {
+        padding: 0 0 0 5%;
+    }
+    .containers{
+        height: 400px;
+        width:100%;
+        
+       
+    }
+     .containers .box1{
+      
+        width: calc(350px - 30px);
+        height: calc(300px - 30px);
+        margin-right: 10px;
+        margin-left: 3%;
+        margin-top: 5%;
+    }
+
+    .containers .box1 .icon{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff7f4;
+        transition: 0.3s ease;
+        z-index: 1;
+    }
+
+    .containers .box1:hover .icon{
+        
+        left: calc(54% - 40px);
+        width: 60px;
+        height: 60px;
+        
+    }
+
+    .containers .box1 .icon .fa{
+        font-size: 70px;
+    }
+
+    .containers .box1:hover .icon .fa{
+        font-size: 30px;
+    }
+
+    .containers .box1 .contents{
+        position: absolute;
+        top: 100%;
+        height: calc(100% - 100px);
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: 0.5s;
+        opacity: 0;
+    }
+
+    .containers .box1:hover .contents{
+        top: 70px;
+        opacity: 1;
+    }
+     .containers .box1 .contents h3{
+       
+        font-size: 25px;
+    }
+
+    .containers .box1 .contents p{
+       
+        font-size: 20px;
+    }
+    .what-we-do video{
+    
+            width:80%;
+            height:500px;
+     
+    }
+    .who-we-are h1{
+        font-size: 45px;
+    }
+    .who-we-are h2{
+        font-size: 30px;
+        margin-right: 6%;
+        margin-left: 6%;
+    }
+    .who-we-are h3{
+        font-size: 30px;
+        margin-right: 10%;
+        margin-left: 6%;
+    }
+     .who-we-are {
+       height: 110vh;
+        
+    }
+    .who-we-are .home-bg-overlay {
+        background-color: rgba(0, 0, 0, 0.7);
+        height: 115vh;
+    }
+    section{
+        width: 60%;
+       
+    }#mailto {
+        padding-left:0%;
+    }
+    .goto button{
+        width: 20%;
+        font-size: 1.0rem;
+        margin-left: 43%;
+        background-color: #ff4b20;
+    }
+    .container{
+    margin-top: 4%;
+   
+    }
+
+    .newarrival{
+    background: #ff4b20;
+    width: 80%;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-left: 30px;
+    }
+    .col-md-7 h2{
+        font-size: 25px;
+        margin-top: 5%;
+    } 
+
+    .col-md-7 p{
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    }
+
+    .col-md-7 h2{
+    color: #555;
+    }
+
+    .stars{
+    height: 20px;
+    }
+
+    .rentus-bg{
+    background-image: url("../images/rentus.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
+    background-color: rgba(0,0,0,0.8);
+    height: 220vh;
+    }
+
+    .rentus{
+    padding-top: 3%;
+    height: 220vh;
+    }
+
+     .topbar{
+    display: flex;
+    width: 80%;
+    margin-left: 5%;
+    height: auto;
+    margin-top: 2%;
+    margin-right: 1%;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px ;
+    background-color: white;
+    border-color: #ff4b20;
+
+    }
+    .search fieldset{
+    width:350%;
+    height: 70px;
+    margin-left: 15%;
+    margin-top: 6%;
+    border-radius: 15px;
+    border-radius: 15px;
+    }
+    .search fieldset legend{
+    margin-left: 7%;
+    color:#ff4b20;
+    }
+    .search fieldset i{
+    margin-left: 4%;
+    margin-top: 2%;
+    }
+    .search fieldset input{
+
+    margin-left: 2%;
+    width: 80%;
+    height: 30px;
+    margin-top: 2%;
+   
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+
+    }
+   /* .search1 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 380%;
+    margin-top: 6%;
+    border-radius: 15px;
+
+    }
+    .search1 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search1 fieldset input{
+
+    margin-left: 10%;
+    width: 75%;
+    height: 30px;
+    margin-top: 4%;
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+    }
+    .search2 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 440%;
+    margin-top: 6%;
+    border-radius: 15px;
+    }
+    .search2 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search2 fieldset input{
+
+    margin-left: 10%;
+    width: 75%; 
+    height: 30px;
+    margin-top: 4%;
+    border:none;
+    border-bottom: 2px solid #ff4b20;
+
+    }*/
+    .search3 button{
+    width: 160%;
+    height: 50px;
+    margin-left:900%;
+    margin-top:40%;
+    font-size: 15px;
+    background-color: #ff4b20;
+    color: white;
+
+    }
+    .listing{
+    
+    height: auto;
+    }
+    .list1{
+    
+    width:85%;
+    height:auto;
+    background-color: white;
+    margin-left:4%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid #ff4b20;
+    }   
+
+    .list1a img{
+    width:25%;
+    height:140px;
+    
+    float:left;
+    }
+    .detail{
+    display: flex;
+    }
+    .list1b{
+    margin-left: 3%;
+
+    width: 40%;
+    
+    }
+    .list1b h2{
+        font-size: 35px;
+    }
+    .list1b h4{
+        font-size: 25px;
+    }
+   
+    
+
+    .list1c{
+    margin-left: 0%;
+   
+    }
+    .list1c p{
+    margin-top: 25%;
+    font-size: 25px;
+    }
+    .amenities{
+    display: flex;
+    }
+    .amenities i{
+    margin-left: 10%;
+    margin-top: 15%;
+
+    }
+    .amenities .fa{
+        font-size: 15px;
+    }
+    .amenities p{
+    font-size: 25px;
+    margin-top: 10%;
+
+    }
+     .View{
+        margin-left: 15%;
+    }
+
+    .View button{
+    margin-left: 0%;
+    margin-top: 80%;
+    font-size: 25px;
+    width: 160%;
+    height: 40px;
+    color: white;
+    background-color: #ff4b20;
+    }
+    
+    .login-align {
+        margin-left: 0%;
+        width: 40%;
+        margin-right: 2%;
+        margin-top: 5%;
+       
+        
+    }
+
+
+
+}
 @media only screen and (max-width:1225px){
+    .otp-start-time {
+    margin-left: 2%;
+    margin-top: 5%;
+    
+    
+    }
+
+     .otp-start-time h3{
+        margin-left: -40%;
+     }
+    
+   
+    .otp {
+    margin-left: 40%;
+    margin-top: 3%;
+    }
     .home-bg-content h1 {
         padding: 10% 0 0 5%;
 
@@ -1548,6 +2007,9 @@ aside{
         font-size: 20px;
         margin-top: 4%;
 
+    }
+    footer{
+        height: auto;
     }
     #right-footer iframe{
         
@@ -1650,7 +2112,8 @@ aside{
 
     .rent-bg-overlay {
        
-        height: 225vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 100%;
 
     }
     .flip-card {
@@ -1764,8 +2227,15 @@ aside{
     #mailto {
         padding-left:0%;
     }
+    .goto button{
+        width: 30%;
+        font-size: 1.0rem;
+        margin-left: 45%;
+        background-color: #ff4b20;
+    }
     .container{
     margin-top: 4%;
+   
     }
 
     .newarrival{
@@ -1866,12 +2336,12 @@ aside{
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0,0,0,0.8);
-    height: 170vh;
+    height: 215vh;
     }
 
     .rentus{
     padding-top: 3%;
-    height: 170vh;
+    height: 215vh;
     }
     .login-align select{
         font-size: 15px;
@@ -1898,11 +2368,235 @@ aside{
         margin-right:10%;
 
     }
+     .topbar{
+    display: flex;
+    width: 80%;
+    margin-left: 5%;
+    height: auto;
+    margin-top: 2%;
+    margin-right: 1%;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px ;
+    background-color: white;
+    border-color: #ff4b20;
+
+    }
+    .search fieldset{
+    width:350%;
+    height: 70px;
+    margin-left: 15%;
+    margin-top: 6%;
+    border-radius: 15px;
+    border-radius: 15px;
+    }
+    .search fieldset legend{
+    margin-left: 7%;
+    color:#ff4b20;
+    }
+    .search fieldset i{
+    margin-left: 4%;
+    margin-top: 2%;
+    }
+    .search fieldset input{
+
+    margin-left: 2%;
+    width: 80%;
+    height: 30px;
+    margin-top: 2%;
+   
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+
+    }
+   /* .search1 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 380%;
+    margin-top: 6%;
+    border-radius: 15px;
+
+    }
+    .search1 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search1 fieldset input{
+
+    margin-left: 10%;
+    width: 75%;
+    height: 30px;
+    margin-top: 4%;
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+    }
+    .search2 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 440%;
+    margin-top: 6%;
+    border-radius: 15px;
+    }
+    .search2 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search2 fieldset input{
+
+    margin-left: 10%;
+    width: 75%; 
+    height: 30px;
+    margin-top: 4%;
+    border:none;
+    border-bottom: 2px solid #ff4b20;
+
+    }*/
+    .search3 button{
+    width: 160%;
+    height: 50px;
+    margin-left:900%;
+    margin-top:40%;
+    font-size: 15px;
+    background-color: #ff4b20;
+    color: white;
+
+    }
+    .listing{
+    
+    height: auto;
+    }
+    .list1{
+    
+    width:85%;
+    height:auto;
+    background-color: white;
+    margin-left:4%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid #ff4b20;
+    }   
+
+    .list1a img{
+    width:25%;
+    height:140px;
+    
+    float:left;
+    }
+    .detail{
+    display: flex;
+    }
+    .list1b{
+    margin-left: 3%;
+
+    width: 40%;
+    
+    }
+    .list1b h2{
+        font-size: 35px;
+    }
+    .list1b h4{
+        font-size: 25px;
+    }
+   
+    
+
+    .list1c{
+    margin-left: 0%;
+   
+    }
+    .list1c p{
+    margin-top: 25%;
+    font-size: 25px;
+    }
+    .amenities{
+    display: flex;
+    }
+    .amenities i{
+    margin-left: 10%;
+    margin-top: 15%;
+
+    }
+    .amenities .fa{
+        font-size: 15px;
+    }
+    .amenities p{
+    font-size: 25px;
+    margin-top: 10%;
+
+    }
+     .View{
+        margin-left: 15%;
+    }
+
+    .View button{
+    margin-left: 0%;
+    margin-top: 80%;
+    font-size: 25px;
+    width: 160%;
+    height: 40px;
+    color: white;
+    background-color: #ff4b20;
+    }
+    .login-align {
+        margin-left: 0%;
+        width: 40%;
+        margin-right: 2%;
+        margin-top: 5%;
+       
+        
+    }
+
     
 
 } 
 
 @media only screen and (max-width: 1024px) {
+    .otp-add{
+        width: 85%;
+    }
+    .otp-start-time {
+    margin-left: 1%;
+    margin-top: 5%;
+    
+    
+    }.otp-add h2{
+        font-size: 30px;
+    }
+    .otp-add p{
+        font-size: 20px;
+        display: none;
+    }
+    .otp-add iframe{
+        width: 30%;
+        height: 130px;
+    }
+    .otp-start-time h3{
+        font-size: 15px;
+    }
+    .otp-start-time h4{
+        font-size: 20px;
+    }
+    .otp-start-time h3{
+        margin-left: -40%;
+    }
+
+    
+   
+    .otp {
+    margin-left: 30%;
+    margin-top: 3%;
+    }
+    .login-align {
+        margin-left: 0%;
+        width: 40%;
+        margin-right: 2%;
+        margin-top: 5%;
+       
+        
+    }
     #navbar ul {
         margin-left: 40%;
     }
@@ -2012,6 +2706,9 @@ aside{
         margin-top: 4%;
 
     }
+    footer{
+        height: auto;
+    }
 
     #right-footer iframe{
         
@@ -2113,7 +2810,8 @@ aside{
 
     .rent-bg-overlay {
        
-        height: 225vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 100%;
 
     }
     .flip-card {
@@ -2227,8 +2925,15 @@ aside{
     #mailto {
         padding-left:0%;
     }
+    .goto button{
+        width: 30%;
+        font-size: 1.0rem;
+        margin-left: 45%;
+        background-color: #ff4b20;
+    }
     .container{
     margin-top: 4%;
+   
     }
 
     .newarrival{
@@ -2329,12 +3034,12 @@ aside{
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0,0,0,0.8);
-    height: 170vh;
+    height: 215vh;
     }
 
     .rentus{
     padding-top: 3%;
-    height: 170vh;
+    height: 215vh;
     }
     .login-align select{
         font-size: 15px;
@@ -2361,6 +3066,179 @@ aside{
         margin-right:10%;
 
     }
+     .topbar{
+    display: flex;
+    width: 80%;
+    margin-left: 5%;
+    height: auto;
+    margin-top: 2%;
+    margin-right: 1%;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px ;
+    background-color: white;
+    border-color: #ff4b20;
+
+    }
+    .search fieldset{
+    width:250%;
+    height: 70px;
+    margin-left: 15%;
+    margin-top: 6%;
+    border-radius: 15px;
+    border-radius: 15px;
+    }
+    .search fieldset legend{
+    margin-left: 7%;
+    color:#ff4b20;
+    }
+    .search fieldset i{
+    margin-left: 4%;
+    margin-top: 2%;
+    }
+    .search fieldset input{
+
+    margin-left: 2%;
+    width: 80%;
+    height: 30px;
+    margin-top: 2%;
+   
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+
+    }
+   /* .search1 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 380%;
+    margin-top: 6%;
+    border-radius: 15px;
+
+    }
+    .search1 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search1 fieldset input{
+
+    margin-left: 10%;
+    width: 75%;
+    height: 30px;
+    margin-top: 4%;
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+    }
+    .search2 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 440%;
+    margin-top: 6%;
+    border-radius: 15px;
+    }
+    .search2 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search2 fieldset input{
+
+    margin-left: 10%;
+    width: 75%; 
+    height: 30px;
+    margin-top: 4%;
+    border:none;
+    border-bottom: 2px solid #ff4b20;
+
+    }*/
+    .search3 button{
+    width: 160%;
+    height: 50px;
+    margin-left:500%;
+    margin-top:40%;
+    font-size: 15px;
+    background-color: #ff4b20;
+    color: white;
+
+    }
+    .listing{
+    
+    height: auto;
+    }
+    .list1{
+    
+    width:85%;
+    height:auto;
+    background-color: white;
+    margin-left:4%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid #ff4b20;
+    }   
+
+    .list1a img{
+    width:25%;
+    height:120px;
+    
+    float:left;
+    }
+    .detail{
+    display: flex;
+    }
+    .list1b{
+    margin-left: 3%;
+
+    width: 40%;
+    
+    }
+    .list1b h2{
+        font-size: 30px;
+    }
+    .list1b h4{
+        font-size: 20px;
+    }
+   
+    
+
+    .list1c{
+    margin-left: 0%;
+   
+    }
+    .list1c p{
+    margin-top: 25%;
+    font-size: 20px;
+    }
+    .amenities{
+    display: flex;
+    }
+    .amenities i{
+    margin-left: 10%;
+    margin-top: 15%;
+
+    }
+    .amenities .fa{
+        font-size: 13px;
+    }
+    .amenities p{
+    font-size: 20px;
+    margin-top: 10%;
+
+    }
+     .View{
+        margin-left: 15%;
+    }
+
+    .View button{
+    margin-left: 0%;
+    margin-top: 80%;
+    font-size: 20px;
+    width: 160%;
+    height: 40px;
+    color: white;
+    background-color: #ff4b20;
+    }
+
     
     
 
@@ -2375,6 +3253,46 @@ aside{
 }
 
 @media only screen and (max-width: 750px){
+    .otp-add{
+        width: 85%;
+    }
+
+    .otp-start-time {
+    margin-left: 5%;
+    margin-top: 5%;
+    
+    
+    }.otp-add h2{
+        font-size: 30px;
+        margin-top: 15%;
+    }
+    .otp-add p{
+        font-size: 20px;
+        display: none;
+    }
+    .otp-add iframe{
+        width: 30%;
+        height: 130px;
+        margin-left: 5%;
+    }
+    .otp-start-time h3{
+        font-size: 15px;
+    }
+    .otp-start-time h4{
+        font-size: 20px;
+    }
+    .otp-start-time h3{
+        margin-left: -40%;
+    }
+
+    #start-time{
+        display: none;
+    }
+   
+    .otp {
+    margin-left: 30%;
+    margin-top: 3%;
+    }
     
      #navbar {
         display: none;
@@ -2682,7 +3600,7 @@ aside{
 
     .rent-bg-overlay {
        
-        height: 195vh;
+        height: 215vh;
 
     }
     .flip-card {
@@ -2801,8 +3719,16 @@ aside{
     #mailto {
         padding-left:0%;
     }
+    .goto button{
+        width: 30%;
+        font-size: 1.2rem;
+        margin-left: 3%;
+        background-color: #ff4b20;
+        color: white;
+    }
     .container{
     margin-top: 4%;
+   
     }
 
     .newarrival{
@@ -2842,7 +3768,7 @@ aside{
 
     .pay-add{
     /*display: flex;*/
-    width:110%;
+    width:150%;
     height:auto;
     background-color: white;
     margin-left:15%;
@@ -2855,15 +3781,18 @@ aside{
 
     .pay-right{
     /*display: flex;*/
-    width:160%;
-    height:35vh;
+    width:100%;
+    height:30vh;
     background-color: white;
-    margin-top: 290%;
-    margin-left: -150%;
+
+    margin-top: 300%;
+    margin-right: 500%;
+
+
     /*padding: 20px;*/
     border: 2px solid #ff9980;
     border-radius: 10px;
-
+    background-color: red;
         
     }
 /*
@@ -2900,12 +3829,12 @@ aside{
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0,0,0,0.8);
-    height: 170vh;
+    height: 210vh;
     }
 
     .rentus{
     padding-top: 3%;
-    height: 170vh;
+    height: 210vh;
     }
     .login-align select{
         font-size: 15px;
@@ -2931,14 +3860,235 @@ aside{
         margin-top: 1%;
         margin-right:10%;
 
+    
+    }
+    .login-align {
+        margin-left: 0%;
+        width: 60%;
+        margin-right: 2%;
+        margin-top: 5%;
+       
+        
+    }
+    .topbar{
+    display: flex;
+    width: 85%;
+    margin-left: 5%;
+    height: auto;
+    margin-top: 2%;
+    margin-right: 1%;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px ;
+    background-color: white;
+    border-color: #ff4b20;
+
+    }
+    .search fieldset{
+    width:200%;
+    height: 70px;
+    margin-left: 15%;
+    margin-top: 6%;
+    border-radius: 15px;
+    border-radius: 15px;
+    }
+    .search fieldset legend{
+    margin-left: 7%;
+    color:#ff4b20;
+    }
+    .search fieldset i{
+    margin-left: 4%;
+    margin-top: 2%;
+    }
+    .search fieldset input{
+
+    margin-left: 2%;
+    width: 80%;
+    height: 30px;
+    margin-top: 2%;
+   
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+
+    }
+   /* .search1 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 380%;
+    margin-top: 6%;
+    border-radius: 15px;
+
+    }
+    .search1 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search1 fieldset input{
+
+    margin-left: 10%;
+    width: 75%;
+    height: 30px;
+    margin-top: 4%;
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+    }
+    .search2 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 440%;
+    margin-top: 6%;
+    border-radius: 15px;
+    }
+    .search2 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search2 fieldset input{
+
+    margin-left: 10%;
+    width: 75%; 
+    height: 30px;
+    margin-top: 4%;
+    border:none;
+    border-bottom: 2px solid #ff4b20;
+
+    }*/
+    .search3 button{
+    width: 160%;
+    height: 50px;
+    margin-left:320%;
+    margin-top:30%;
+    font-size: 18px;
+    background-color: #ff4b20;
+    color: white;
+
+    }
+    .listing{
+    
+    height: auto;
+    }
+    .list1{
+    
+    width:80%;
+    height:auto;
+    background-color: white;
+    margin-left:4%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid #ff4b20;
+    }   
+
+    .list1a img{
+    width:30%;
+    height:100px;
+    
+    float:left;
+    }
+    .detail{
+    display: flex;
+    }
+    .list1b{
+    margin-left: 3%;
+
+    width: 40%;
+    
+    }
+    .list1b h2{
+        font-size: 25px;
+    }
+    .list1b h4{
+        font-size: 15px;
+    }
+   
+    
+
+    .list1c{
+    margin-left: 0%;
+   
+    }
+    .list1c p{
+    margin-top: 25%;
+    font-size: 15px;
+    }
+    .amenities{
+    display: flex;
+    }
+    .amenities i{
+    margin-left: 10%;
+    margin-top: 15%;
+
+    }
+    .amenities .fa{
+        font-size: 12px;
+    }
+    .amenities p{
+    font-size: 15px;
+    margin-top: 10%;
+
+    }
+     .View{
+        margin-left: 15%;
     }
 
+    .View button{
+    margin-left: 0%;
+    margin-top: 50%;
+    font-size: 15px;
+    width: 140%;
+    height: 40px;
 
-
-@media only screen and (max-width:500px) and (min-width:361px) {
-    body{
-        width: 500px;
+    background-color: #ff4b20;
     }
+
+    
+
+
+}
+@media only screen and (max-width:500px) {
+        .otp-add{
+        width: 80%;
+    }
+
+    .otp-start-time {
+    margin-left: 5%;
+    margin-top: 5%;
+    
+    
+    }.otp-add h2{
+        font-size: 25px;
+        margin-top: 15%;
+    }
+    .otp-add p{
+        font-size: 20px;
+        display: none;
+    }
+    .otp-add iframe{
+        width: 40%;
+        height: 150px;
+        margin-left: 2%;
+    }
+    .otp-start-time h3{
+        font-size: 15px;
+    }
+    .otp-start-time h4{
+        font-size: 15px;
+    }
+    .otp-start-time h3{
+        margin-left: -40%;
+    }
+
+    #start-time{
+        display: none;
+    }
+   
+    .otp {
+    margin-left: 25%;
+    margin-top: 3%;
+    }
+
      #navbar {
         display: none;
     }
@@ -3302,15 +4452,58 @@ aside{
     .login-align .fa{
         font-size: 25px;
     }
+
+    .login h1 {
+        font-size: 30px;
+        margin-right: 7%;
+    }
+    .login-align .fa{
+        font-size: 20px;
+    }
+
+    .login p{
+        font-size: 17px;
+        margin-right: 2%;
+    }
+    .login h4{
+        font-size: 20px;
+        margin-right: 2%;
+    }
+   
+    .login-align {
+        margin-left: 0%;
+        width: 60%;
+        margin-right: 2%;
+        margin-top: 5%;
+       
+        
+    }
+    .login a{
+        margin-right: 4%;
+    }
     .login label {
         text-align: left;
         font-size: 25px;
     }
     .login input {
         width: 100%;
-        height: 25px;
-        font-size: 0.8rem;
+        height: 20px;
+        font-size: 1.0rem;
 
+    }
+    .login-btn {
+        font-size: 20px;
+        border-radius: 5px;
+        margin-right: 6%;
+    } 
+
+    .signup {
+        background-color: rgba(0,0,0,0.8);
+        height: 130vh;
+        padding-top:20px;
+    }
+    .signup-bg {
+        height: 130vh;
     }
     .contact{
         height: 50vh;
@@ -3372,8 +4565,15 @@ aside{
     #mailto {
         padding-left:0%;
     }
+    .goto button{
+        width: 30%;
+        font-size: 1.0rem;
+        margin-left: 5%;
+        background-color: #ff4b20;
+    }
     .container{
     margin-top: 4%;
+
     }
 
     .newarrival{
@@ -3411,38 +4611,39 @@ aside{
     }
 
 
-    
-    
     .pay-add{
-        /*display: flex;*/
-        width:110%;
-        height:auto;
-        background-color: white;
-        margin-top: 40px;
-        /*padding: 20px;*/
-        border: 2px solid #ff9980;
-        border-radius: 10px; 
-        cursor: pointer;
-        }
-    
-        .pay-right{
-        /* display: flex; */
-        width: 180%;
-        height:30vh;
-        background-color: white;
-        margin-top: 320%;
-        margin-left: -180%;
-        /*padding: 20px;*/
-        border: 2px solid #ff9980;
-        border-radius: 10px;   
-        }
-  
-        
+    /*display: flex;*/
+    width:150%;
+    height:auto;
+    background-color: white;
+    margin-left:15%;
+    margin-top: 40px;
+    /*padding: 20px;*/
+    border: 2px solid #ff9980;
+    border-radius: 10px; 
+    cursor: pointer;
     }
 
-    .pay1{
-    width: 100%;
+    .pay-right{
+    /*display: flex;*/
+    width:100%;
+    height:30vh;
+    background-color: white;
+
+    margin-top: 300%;
+    margin-right: 500%;
+
+
+    /*padding: 20px;*/
+    border: 2px solid #ff9980;
+    border-radius: 10px;
+    background-color: red;
+        
     }
+/*
+    .pay1{
+    display: flex;
+    }*/
     .pay1 label{
         font-size: 20px;
     }
@@ -3473,12 +4674,12 @@ aside{
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0,0,0,0.8);
-    height: 170vh;
-    }
+    height: 185vh;
+}
 
     .rentus{
     padding-top: 3%;
-    height: 170vh;
+    height: 185vh;
     }
     .login-align select{
         font-size: 15px;
@@ -3504,10 +4705,11 @@ aside{
         margin-top: 1%;
         margin-right:10%;
 
-    }.topbar{
+    }
+    .topbar{
    
-    width: 90%;
-    margin-left: 3%;
+    width: 85%;
+    margin-left: 5%;
     height: auto;
     margin-top: 2%;
     margin-right: 1%;
@@ -3518,10 +4720,11 @@ aside{
     border-color: #ff4b20;
 
     }
+
     .search fieldset{
-    width:200%;
+    width:250%;
     height: 70px;
-    margin-left: 20%;
+    margin-left: 10%;
     margin-top: 6%;
     border-radius: 15px;
     border-radius: 15px;
@@ -3572,7 +4775,7 @@ aside{
     width: 120%;
     height: 70px;
     margin-left: 440%;
-    margin-top: 6%;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    margin-top: 6%;
     border-radius: 15px;
     }
     .search2 fieldset legend{
@@ -3592,12 +4795,11 @@ aside{
     .search3 button{
     width: 200%;
     height: 50px;
-    margin-left: -50%;
+    margin-left: -10%;
     margin-top:150%;
     font-size: 20px;
     background-color: #ff4b20;
     color: white;
-
 
     }
     .listing{
@@ -3617,9 +4819,9 @@ aside{
     }   
 
     .list1a img{
-    width:15%;
-    height:130px;
-    background-color: red;
+    width:30%;
+    height:70px;
+    
     float:left;
     }
     .detail{
@@ -3627,10 +4829,21 @@ aside{
     }
     .list1b{
     margin-left: 3%;
+
+    width: 50%;
     
     }
+    .list1b h2{
+        font-size: 30px;
+    }
+    .list1b h4{
+        display: none;
+    }
+    
+
     .list1c{
-    margin-left: 20%;
+    margin-left: 10%;
+    display: none;
     }
     .list1c p{
     margin-top: 25%;
@@ -3648,14 +4861,33 @@ aside{
     margin-top: 10%;
 
     }
+     .View{
+        margin-left: 7%;
+    }
+
+    .View button{
+    margin-left: 0%;
+    margin-top: 30%;
+    font-size: 20px;
+    width: 160%;
+    height: 40px;
+
+    background-color: #ff4b20;
+    }
+      .login-align {
+        margin-left: 0%;
+        width: 60%;
+        margin-right: 2%;
+        margin-top: 5%;
+       
+        
+    }
 
 
    
     
 
 }
-
-
 
 
 
@@ -3731,8 +4963,8 @@ aside{
 
     }
     .containers{
-        height: 1200px;
-        width:320px;
+        height: 1300px;
+        width:100%;
         
        
     }
@@ -3784,7 +5016,7 @@ aside{
         opacity: 0;
     }
 
-    .containers .box1:hover .contents{
+    .containers .box1:hover .contents {
         top: 70px;
         opacity: 1;
     }
@@ -3796,7 +5028,7 @@ aside{
 
     .containers .box1 .contents p{
        
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .try h1 {
@@ -3817,9 +5049,8 @@ aside{
 
     }
     .one {
-      
         width: 70%;
-        height:50vh;
+        height: 50vh;
         margin-top: 0%;
         margin-left: 12%;
         
@@ -3834,6 +5065,9 @@ aside{
     }
     #footer{
         display: block;
+         background-color: #1c1c1c;
+         height: auto;
+
     }
     #left-footer{
         margin-left: 10%;
@@ -3851,16 +5085,14 @@ aside{
        
     }
     .wrapper{
-        margin-left: 10%;
+        margin-left: -5%;
     }
     .wrapper ul li{
         font-size: 15px;
     }
     #right-footer{
         margin-top: 10%;
-        background-color: #1c1c1c;
-        height: 300px;
-
+        
     }
     #right-footer h2{
         margin-left: 0%;
@@ -3868,15 +5100,10 @@ aside{
     }    
     #right-footer iframe{
         height: 200px;
-        width: 250px;
-        
-
-
+        width: 300px;
        
     } 
-    footer p{
-        margin-top: 75%;
-    }
+    
     .login h1 {
         font-size: 30px;
         margin-right: 11%;
@@ -4169,6 +5396,12 @@ aside{
     .stars{
     height: 20px;
     }
+    .goto button{
+        width: 30%;
+        font-size: 1.0rem;
+        margin-left: 60%;
+        background-color: #ff4b20;
+    }
     .top{
     background-color: #ff9980;
     width:100%;
@@ -4179,9 +5412,10 @@ aside{
 
     .pay-add{
     /*display: flex;*/
-    width:120%;
+    width:150%;
     height:auto;
     background-color: white;
+    margin-left:15%;
     margin-top: 40px;
     /*padding: 20px;*/
     border: 2px solid #ff9980;
@@ -4190,15 +5424,20 @@ aside{
     }
 
     .pay-right{
-    /* display: flex; */
-    width: 250%;
+    /*display: flex;*/
+    width:100%;
     height:30vh;
     background-color: white;
-    margin-top: 450%;
-    margin-left: -180%;
+
+    margin-top: 300%;
+    margin-right: 500%;
+
+
     /*padding: 20px;*/
     border: 2px solid #ff9980;
-    border-radius: 10px;   
+    border-radius: 10px;
+    background-color: red;
+        
     }
 /*
     .pay1{
@@ -4234,12 +5473,12 @@ aside{
     background-size: cover;
     background-position: center bottom;
     background-color: rgba(0,0,0,0.8);
-    height: 170vh;
+    height: 185vh;
     }
 
     .rentus{
     padding-top: 3%;
-    height: 170vh;
+    height: 185vh;
     }
     .login-align select{
         font-size: 15px;
@@ -4266,7 +5505,221 @@ aside{
         margin-right:10%;
 
     }
+        .otp-add{
+        width: 80%;
+    }
 
+    .otp-start-time {
+    margin-left: 6%;
+    margin-top: 7%;
+    
+    
+    }.otp-add h2{
+        font-size: 20px;
+        margin-top: 20%;
+    }
+    .otp-add p{
+        font-size: 15px;
+        display: none;
+    }
+    .otp-add h4{
+        font-size: 15px;
+    }
+    .otp-add iframe{
+        width: 60%;
+        height: 130px;
+        margin-left: -80%;
+        margin-top: 35%;
+    }
+    .otp-start-time h3{
+        font-size: 15px;
+    }
+    .otp-start-time h4{
+        font-size: 17px;
+    }
+    .otp-start-time h3{
+        margin-left: -40%;
+    }
+
+    #start-time{
+        display: none;
+    }
+   
+    .otp {
+    margin-left: 15%;
+    margin-top: 3%;
+    } 
+    .otp h1{
+
+        font-size:30px;
+    }
+    .topbar{
+   
+    width: 80%;
+    margin-left: 5%;
+    height: auto;
+    margin-top: 5%;
+    margin-right: 1%;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px ;
+    background-color: white;
+    border-color: #ff4b20;
+
+    }
+    .search fieldset{
+    width:170%;
+    height: 70px;
+    margin-left: 10%;
+    margin-top: 6%;
+    border-radius: 15px;
+    border-radius: 15px;
+    }
+    .search fieldset legend{
+    margin-left: 7%;
+    color:#ff4b20;
+    }
+    .search fieldset i{
+    margin-left: 4%;
+    margin-top: 2%;
+    }
+    .search fieldset input{
+
+    margin-left: 2%;
+    width: 80%;
+    height: 30px;
+    margin-top: 2%;
+   
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+
+    }
+   /* .search1 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 380%;
+    margin-top: 6%;
+    border-radius: 15px;
+
+    }
+    .search1 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search1 fieldset input{
+
+    margin-left: 10%;
+    width: 75%;
+    height: 30px;
+    margin-top: 4%;
+    border: none;
+    border-bottom: 2px solid #ff4b20;
+
+    }
+    .search2 fieldset{
+    width: 120%;
+    height: 70px;
+    margin-left: 440%;
+    margin-top: 6%;
+    border-radius: 15px;
+    }
+    .search2 fieldset legend{
+    margin-left: 20%;
+    color:#ff4b20;   
+    }
+    .search2 fieldset input{
+
+    margin-left: 10%;
+    width: 75%; 
+    height: 30px;
+    margin-top: 4%;
+    border:none;
+    border-bottom: 2px solid #ff4b20;
+
+    }*/
+    .search3 button{
+    width: 200%;
+    height: 50px;
+    margin-left: -100%;
+    margin-top:150%;
+    font-size: 20px;
+    background-color: #ff4b20;
+    color: white;
+
+    }
+    .listing{
+    
+    height: auto;
+    }
+    .list1{
+    
+    width:80%;
+    height:auto;
+    background-color: white;
+    margin-left:4%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 5px solid #ff4b20;
+    }   
+
+    .list1a img{
+    width:30%;
+    height:70px;
+    
+    float:left;
+    }
+    .detail{
+    display: flex;
+    }
+    .list1b{
+    margin-left: 3%;
+
+    width: 50%;
+    
+    }
+    .list1b h2{
+        font-size: 30px;
+    }
+    .list1b h4{
+        display: none;
+    }
+    
+
+    .list1c{
+    margin-left: 10%;
+    display: none;
+    }
+    .list1c p{
+    margin-top: 25%;
+    font-size: 25px;
+    }
+    .amenities{
+    display: flex;
+    }
+    .amenities i{
+    margin-left: 10%;
+    margin-top: 15%;
+    }
+    .amenities p{
+    font-size: 25px;
+    margin-top: 10%;
+
+    }
+     .View{
+        margin-left: 7%;
+    }
+
+    .View button{
+    margin-left: 0%;
+    margin-top: 30%;
+    font-size: 20px;
+    width: 160%;
+    height: 40px;
+
+    background-color: #ff4b20;
+    }
 
 
     

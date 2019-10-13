@@ -2,19 +2,26 @@
     session_start();
     require("include/dbconnect.php");
 
-    $_GET['logout'] = 0;
-    if($_GET['logout']==1) {
+    
+    if(isset($_GET['logout'])) {
         unset($_SESSION['username']);
         unset($_SESSION['otp']);
+        unset($_SESSION['latitude']);
+        unset($_SESSION['longitude']);
+        unset($_COOKIE['username']);
         session_unset();
         session_destroy();
-        echo "<script>alert('You are logged out.');</script>";
-        header('Location: login.php');
+        $_GET['logout'] = 0;
+        //header('Location: login.php');
+    } elseif(isset($_COOKIE['username'])) {
+        $_SESSION['username'] = $_COOKIE['username'];
+        setcookie('username',$username,time()+86400);
+        header('Location: getLocation.php');
     }
-
+   
     if(isset($_POST['login'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = htmlspecialchars($_POST['username']);
+        $password = htmlspecialchars($_POST['password']);
 
         $query = "SELECT password FROM users WHERE username='$username'";
         $result = mysqli_query($conn,$query);
@@ -52,29 +59,29 @@
 
 <body>
     <div class="home-bg login-bg">
-        <nav id="navbar">
-            <img class="logo" src="images\logo.png" alt="park">
-            <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+    <nav id="navbar">
+            <img class="logo" src="images\logo.png" alt="park"><h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+          
             <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="signup.html">SIGN UP</a></li>
-                <li><a style="color: #ff4b20" href="login.html">LOGIN</a></li>
-            </ul>
+                <li><a href="index.php">HOME</a></li>
+                <li><a href="about.php">ABOUT</a></li>
+                <li><a href="contact.php">CONTACT</a></li>
+                <li><a href="signup.php">SIGN UP</a></li>
+                <li><a style="color: #ff4b20" href="login.php">LOGIN</a></li> 
+            </ul> 
         </nav>
-        <nav class="topnav" id="myTopnav">
-                <img class="logo" src="images\logo.png" alt="park"><h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
-                
-                <a href="#home">HOME</a>
-                <a href="#news">ABOUT</a>
-                <a href="#contact">CONTACT</a>
-                <a href="#about">SIGNUP</a>
-                <a href="#about">LOGIN</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-                </a>
-        </nav>
+            <nav class="topnav" id="myTopnav">
+            	<img class="logo" src="images\logo.png" alt="park"><h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
+            	
+            	<a href="index.php">HOME</a>
+            	<a href="about.php">ABOUT</a>
+            	<a href="contact.php">CONTACT</a>
+            	<a href="signup.php">SIGNUP</a>
+            	<a style="color: #ff4b20" href="login.php">LOGIN</a>
+  				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    			<i class="fa fa-bars"></i>
+  				</a>
+            </nav>
         <div class="login-bg-overlay">
             <center>
                 <div style="color:white;" class="login-bg-content">
@@ -121,21 +128,21 @@ function myFunction() {
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                    <ul style="list-style-type: none;">
+                <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="#">Members</a></li>
                     </ul>
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><a href="contact.php">Feedback</a></li>
                         <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>
                 <div class="wrapper">

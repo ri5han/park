@@ -27,25 +27,24 @@
     
         <!-- nav semantic elements -->
         <nav id="navbar">
-            <!-- logo is specified below -->
             <img class="logo" src="images\logo.png" alt="park"><h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
           
             <ul>
-                <li><a style="color: #ff4b20" href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-                <li><a href="signup.html">SIGN UP</a></li>
-                <li><a href="login.html">LOGIN</a></li> 
+                <li><a style="color: #ff4b20" href="index.php">HOME</a></li>
+                <li><a href="about.php">ABOUT</a></li>
+                <li><a href="contact.php">CONTACT</a></li>
+                <li><a href="signup.php">SIGN UP</a></li>
+                <li><a href="login.php">LOGIN</a></li> 
             </ul> 
         </nav>
             <nav class="topnav" id="myTopnav">
             	<img class="logo" src="images\logo.png" alt="park"><h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
             	
-            	<a href="#home">HOME</a>
-            	<a href="#news">ABOUT</a>
-            	<a href="#contact">CONTACT</a>
-            	<a href="#about">SIGNUP</a>
-            	<a href="#about">LOGIN</a>
+            	<a href="index.php">HOME</a>
+            	<a href="about.php">ABOUT</a>
+            	<a href="contact.php">CONTACT</a>
+            	<a href="signup.php">SIGNUP</a>
+            	<a href="login.php">LOGIN</a>
   				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
     			<i class="fa fa-bars"></i>
   				</a>
@@ -353,21 +352,21 @@ function carousel() {
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                    <ul style="list-style-type: none;">
+                <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <li><a href="#">Members</a></li>
                     </ul>
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        <li><a href="contact.php">Feedback</a></li>
                         <li><a href="#">Jobs</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>
                 <div class="wrapper">
