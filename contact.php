@@ -132,14 +132,14 @@
             <div style="color: #ff4b20;" id="left-footer">
                 <br><br><br>
                 <div id="footer-site-links">
-                    <li style="list-style-type: none;">
+                    <ul style="list-style-type: none;">
                         <h2>Site Map</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="index.php">Home</a></li>
                         <li><a href="about.php">About</a></li>
                         <li><a href="contact.php">Contact</a></li>
                         <li><a href="#">Members</a></li>
-                    </li>
+                    </ul>
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>

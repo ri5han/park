@@ -13,7 +13,7 @@
     $endTime = $_SESSION['endTime'];
     
     $spaceId = $_SESSION['spaceId'];
-    echo $spaceId;
+
     $username = $_SESSION['username'];
     $otp = rand(10000,99999);
     $_SESSION['otp'] = $otp;

@@ -40,8 +40,8 @@
         <!-- nav semantic elements -->
         <nav id="navbar">
             <!-- logo is specified below -->
-            <img class="logo" src="images\logo.png" alt="park">
-            <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+            <img style="width: 85px;" class="logo" src="images\logo.png" alt="park">
+            <h1><b><span style="color: #ff4b20;">Park</span><span>inzo</span></b></h1>
 
             <ul>
                 <li><a href="listing.php">HOME</a></li>

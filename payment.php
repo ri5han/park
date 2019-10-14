@@ -14,7 +14,7 @@
         $spaceId = $_GET['spaceId'];
         $_SESSION['spaceId'] = $spaceId;
     } else {
-        $spaceId = NULL;
+        $spaceId = $_SESSION['spaceId'];
     }
 
     $query = "SELECT * FROM users WHERE username='$username'";
@@ -25,36 +25,45 @@
     $result = mysqli_query($conn,$query);
     $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
+    if(isset($_POST['wallet'])) {
+      $query = "SELECT price FROM spaces WHERE id='$spaceId'";
+      $result = mysqli_query($conn,$query);
+      $price = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+      $total = $price[0]['price']+0.5+1.5;
+      $_SESSION['total'] = $total;
+      $balance = $users[0]['balance'] - $total; 
+      $queryDist = "UPDATE users SET balance='$balance' WHERE username='$username'";
+      $updateDistance = mysqli_query($conn, $queryDist);
+      //setcookie('spaceId',$spaceId,time()+864000,'/');
+      
+      $_SESSION['startTime'] = date('h:i');
+      $endTime = strtotime($_SESSION['startTime']) + 60*60;
+      $_SESSION['endTime'] = date('h:i', $endTime);
+      header('Location: otp.php');
+
+  } elseif(isset($_POST['card'])) {
+      //setcookie('spaceId',$spaceId,time()+864000,'/');
+      $_SESSION['startTime'] = date('h:i');
+      $endTime = strtotime($_SESSION['startTime']) + 60*60;
+      $_SESSION['endTime'] = date('h:i', $endTime);
+      header('Location: otp.php');
+
+  } elseif(isset($_POST['add-money'])) {
+      //setcookie('spaceId',$spaceId,time()+864000,'/');
+      $money = $_POST['money'];
+      $balance = $users[0]['balance'] + $money;
+      $queryDist = "UPDATE users SET balance='$balance' WHERE username='$username'";
+      $updateDistance = mysqli_query($conn, $queryDist);
+      header('Location: payment.php?spaceId');
+
+  }
+
+
     $total = $spaces[0]['price']+0.5+1.5;
     $_SESSION['total'] = $total;
+    echo $_SESSION['total'];
 
-    if(isset($_POST['wallet'])) {
-        $balance = $users[0]['balance'] - $_SESSION['total']; 
-        $queryDist = "UPDATE users SET balance='$balance' WHERE username='$username'";
-        $updateDistance = mysqli_query($conn, $queryDist);
-        //setcookie('spaceId',$spaceId,time()+864000,'/');
-        
-        $_SESSION['startTime'] = date('h:i');
-        $endTime = strtotime($_SESSION['startTime']) + 60*60;
-        $_SESSION['endTime'] = date('h:i', $endTime);
-        header('Location: otp.php');
-
-    } elseif(isset($_POST['card'])) {
-        //setcookie('spaceId',$spaceId,time()+864000,'/');
-        $_SESSION['startTime'] = date('h:i');
-        $endTime = strtotime($_SESSION['startTime']) + 60*60;
-        $_SESSION['endTime'] = date('h:i', $endTime);
-        header('Location: otp.php');
-
-    } elseif(isset($_POST['add-money'])) {
-        //setcookie('spaceId',$spaceId,time()+864000,'/');
-        $money = $_POST['money'];
-        $balance = $users[0]['balance'] + $money;
-        $queryDist = "UPDATE users SET balance='$balance' WHERE username='$username'";
-        $updateDistance = mysqli_query($conn, $queryDist);
-        header('Location: payment.php?spaceId');
-
-    }
 ?>
 
 
@@ -251,8 +260,8 @@
   <div class="otp-bg">
     <nav id="navbar">
       <!-- logo is specified below -->
-      <img class="logo" src="images\logo.png" alt="park">
-      <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+      <img style="width: 85px;" class="logo" src="images\logo.png" alt="park">
+      <h1><b><span style="color: #ff4b20;">Park</span><span>inzo</span></b></h1>
 
       <ul>
         <li><a href="listing.php">HOME</a></li>
