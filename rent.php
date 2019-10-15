@@ -168,7 +168,7 @@ if(isset($_POST['submit'])){
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="contact.php">Feedback</a></li>
-                        <li><a href="#">Jobs</a></li>
+                        <li><a href="partners.html">Our Partners</a></li>
                         <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>

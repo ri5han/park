@@ -147,7 +147,7 @@
         <br><br><br><br>
         <h1>If you like what you just read, why not try ?</h1>
         <br><br>
-        <a href="signup.html">Get Started</a>
+        <a href="signup.php">Get Started</a>
         <br>
     </div>
     <!-- econd section ends here -->
@@ -166,7 +166,7 @@
                     <h2>Be it a garage, plain space or a parking lot,don't let your empty space go to waste!</h2><br>
                     <h2 style="font-size: 35px;">Earn from it!</h2>
                     <br><br><br>
-                    <a href="#">Learn more...</a>
+                    <a href="rent.php">Rent now</a>
                 </div>
             </div>
         </div>
@@ -371,7 +371,7 @@
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="contact.php">Feedback</a></li>
-                        <li><a href="#">Jobs</a></li>
+                        <li><a href="partners.html">Our Partners</a></li>
                         <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>

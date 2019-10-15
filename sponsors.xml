@@ -1,0 +1,30 @@
+<CATALOG>
+    <CD>
+        <logo>1</logo>
+        <name>Jaguar</name>      
+    </CD>
+    <CD>
+        <logo>2</logo>
+        <name>GetMyParking</name>
+    </CD>
+    <CD>
+        <logo>3</logo>
+        <name>MBMC</name>
+    </CD>
+    <CD>
+        <logo>4</logo>
+        <name>Mercedes</name>
+    </CD>
+    <CD>
+        <logo>5</logo>
+        <name>Jio Garden</name>
+    </CD>
+    <CD>
+        <logo>6</logo>
+        <name>Google</name>
+    </CD>
+    <CD>
+        <logo>7</logo>
+        <name>SFIT</name>
+    </CD>
+</CATALOG>

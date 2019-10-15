@@ -1,5 +1,7 @@
 <?php
-	
+
+    session_start();
+    
 	if(isset($_POST['submit'])){
 		
 		$name = htmlspecialchars($_POST['username']);
@@ -45,31 +47,63 @@
 
 <body>
     <div class="signup-bg contact">
-        <nav id="navbar">
-            <img class="logo" src="images\logo.png" alt="park">
-            <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
 
-            <ul>
-                <li><a href="index.php">HOME</a></li>
-                <li><a href="about.php">ABOUT</a></li>
-                <li><a style="color: #ff4b20" href="contact.php">CONTACT</a></li>
-                <li><a href="signup.php">SIGN UP</a></li>
-                <li><a href="login.php">LOGIN</a></li>
-            </ul>
-        </nav>
-        <nav class="topnav" id="myTopnav">
-            <img class="logo" src="images\logo.png" alt="park">
-            <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
+        <?php if(isset($_SESSION['username'])): ?>
 
-            <a href="index.php">HOME</a>
-            <a href="about.php">ABOUT</a>
-            <a style="color: #ff4b20" href="contact.php">CONTACT</a>
-            <a href="signup.php">SIGNUP</a>
-            <a href="login.php">LOGIN</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </nav>
+            <nav id="navbar">
+                <!-- logo is specified below -->
+                <img style="width: 85px;" class="logo" src="images\logo.png" alt="park">
+                <h1><b><span style="color: #ff4b20;">Park</span><span>inzo</span></b></h1>
+
+                <ul>
+                    <li><a href="listing.php">HOME</a></li>
+                    <!-- <li><a href="about.html">ABOUT</a></li> -->
+                    <li><a style="color: #ff4b20" href="contact.php">CONTACT</a></li>
+                    <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
+                    <li><a href="login.php?logout=1">LOGOUT</a></li>
+                </ul>
+            </nav>
+
+            <nav class="topnav" id="myTopnav">
+                <img class="logo" src="images\logo.png" alt="park">
+                <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
+
+                <a href="listing.php">HOME</a>
+                <!-- <a href="#news">ABOUT</a> -->
+                <a style="color: #ff4b20" href="contact.php">CONTACT</a>
+                <a href="#"><?php echo $_SESSION['username']; ?></a>
+                <a href="login.php?logout=1">LOGOUT</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </nav>
+        <?php else: ?>
+            <nav id="navbar">
+                <img class="logo" src="images\logo.png" alt="park">
+                <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="about.php">ABOUT</a></li>
+                    <li><a style="color: #ff4b20" href="contact.php">CONTACT</a></li>
+                    <li><a href="signup.php">SIGN UP</a></li>
+                    <li><a href="login.php">LOGIN</a></li>
+                </ul>
+            </nav>
+            <nav class="topnav" id="myTopnav">
+                <img class="logo" src="images\logo.png" alt="park">
+                <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
+
+                <a href="index.php">HOME</a>
+                <a href="about.php">ABOUT</a>
+                <a style="color: #ff4b20" href="contact.php">CONTACT</a>
+                <a href="signup.php">SIGNUP</a>
+                <a href="login.php">LOGIN</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </nav>
+        <?php endif; ?>
         <div class="inner">
             <h1><i class="fa fa-phone">&nbsp;</i><span style="color: #000;">Consult &nbsp;with&nbsp;</span>
                 <span style="color: #ff4b20;">&nbsp;Park</span><span style="color: #fff;">inzo</span></h1>
@@ -145,7 +179,7 @@
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="contact.php">Feedback</a></li>
-                        <li><a href="#">Jobs</a></li>
+                        <li><a href="partners.html">Our Partners</a></li>
                         <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>

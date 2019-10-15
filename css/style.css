@@ -424,6 +424,10 @@ p {
     background-image: url("../images/login.jpg");
 }
 
+.forgot-bg-overlay {
+    background-color: #fff7f4;
+}
+
 .login {
     background-color: rgba(0, 0, 0, 0.8);
     height: 100vh;

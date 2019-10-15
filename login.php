@@ -102,7 +102,7 @@
                             </div>
                             <br>
                         </div>
-                        <small><a href="#" style="color: #4fffff; font-size: 15px;">Forgot password ?</a></small>
+                        <small><a href="forgot.php" style="color: #4fffff; font-size: 15px;">Forgot password ?</a></small>
                         <br><br>
                         <input name="login" class="login-btn"
                             style="width: 30%; background-color: #ff4b20;border-color: #ff4b20;font-weight: 900;"
@@ -111,7 +111,7 @@
                         <br><br><br>
                         <h4>Don't have an account ?</h4><br><a
                             style="background-color: #3385ff;text-decoration: none; color:white;padding: 10px; border-radius: 25px;"
-                            href="signup.html">SIGN UP</a>
+                            href="signup.php">SIGN UP</a>
                     </div>
                 </div>
             </center>
@@ -149,7 +149,7 @@
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="contact.php">Feedback</a></li>
-                        <li><a href="#">Jobs</a></li>
+                        <li><a href="partners.html">Our Partners</a></li>
                         <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>
