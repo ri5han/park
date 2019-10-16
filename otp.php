@@ -53,7 +53,7 @@
                 <li><a href="listing.php">HOME</a></li>
                 <!-- <li><a href="about.html">ABOUT</a></li> -->
                 <li><a href="contact.php">CONTACT</a></li>
-                <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
+                <li><i class="fa fa-user"></i>&nbsp;<a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
                 <li><a href="login.php?logout=1">LOGOUT</a></li>
             </ul>
         </nav>
@@ -65,7 +65,7 @@
             <a href="listing.php">HOME</a>
             <!-- <a href="#news">ABOUT</a> -->
             <a href="contact.php">CONTACT</a>
-            <a href="#"><?php echo $_SESSION['username']; ?></a>
+            <i class="fa fa-user"></i>&nbsp;<a href="#"><?php echo $_SESSION['username']; ?></a>
             <a href="login.php?logout=1">LOGOUT</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
@@ -138,7 +138,7 @@
                     <ul style="list-style-type: none;">
                         <h2>Explore</h2>
                         <div style="background-color: black;height: 5px;width:50%;"></div>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="partners.html">FAQ</a></li>
                         <li><a href="contact.php">Feedback</a></li>
                         <li><a href="partners.html">Our Partners</a></li>
                         <li><a href="terms.html">Terms & Conditions</a></li>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<breakfast_menu>
+<food>
+    <name>What does Parkinzo do?</name>
+    <description>
+   We provide an Interoperable Smart Parking Platform that connects all parking and mobility 
+   stakeholders on a common platform who were until now operating in silos.
+   </description>
+</food>
+<food>
+    <name>Which sectors does Parkinzo cater to?</name>
+    <description>
+    Our smart parking solutions are designed for every stakeholder in the parking ecosystem i.e. for Operators, Governments, 
+    Corporates, Mobility companies, and Automobile OEMs</description>
+</food>
+<food>
+    <name>What is Parkinzo corporate/institutional parking solution?</name>
+    <description>
+    Our solution for corporates provides proper parking experience to employees and visitors - which is an essential part of workplace management. 
+    Our customised offering solves unique problems faced at any corporate parking.
+    </description>
+</food>
+<food>
+    <name>Does Parkinzo provide Parking Hardware solution? </name>
+    <description>
+    Yes, we do deal in hardware equipments. Parkinzo is a software company. But we do have an ecosystem of 
+    hardware vendors with whom our software is integrated. We are happy to recommend the suitable hardware 
+    vendor to our customers depending on the business requirements.
+    </description>
+</food>
+</breakfast_menu>

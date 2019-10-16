@@ -4,7 +4,7 @@
     if(mysqli_connect_errno()) {
         echo "Failed to connect db";
     } else {
-        echo "Connected to db";
+        //echo "Connected to db";
     }
 
 ?>

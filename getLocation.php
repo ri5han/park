@@ -7,8 +7,8 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
     $long = $_POST['longitude'];
     $_SESSION['latitude'] = $lat;
     $_SESSION['longitude'] = $long;
-    // echo $_SESSION['latitude']."<br>";
-    // echo $_SESSION['longitude'];
+    echo $_SESSION['latitude']."&nbsp;&nbsp&nbsp;";
+    echo $_SESSION['longitude'];
 }
 
 ?>
@@ -41,7 +41,7 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
                 data: 'latitude=' + latitude + '&longitude=' + longitude,
                 success: function (msg) {
                     if (msg) {
-                        $("#location").html("Located! Redirecting ....");
+                        $("#location").html("Located! Redirecting......");
                         window.location.href = "listing.php";
                     } else {
                         $("#location").html('Not Available');
@@ -69,7 +69,8 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
 </head>
 
 <body>
-    <p><span class="label"></span> <span id="location"></span></p>
+    <p><span class="label"></span><?php echo $_SESSION['latitude']."&nbsp;&nbsp&nbsp;";
+    echo $_SESSION['longitude']; ?><span id="location"></span></p>
     <p style="margin-top: 10%;"><b>Please allow us to locate you by selecting "Allow".<br>Also make sure to select
             "Remember"</b></p>
 </body>

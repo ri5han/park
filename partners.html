@@ -1,45 +1,138 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
+<link rel="icon" href="images/logo.png">
+<title>Parkinzo | Welcome</title>
+<link rel="manifest" href="manifest.json" content-type="application/json">
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<link href="https://fonts.googleapis.com/css?family=Blinker&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-table,th,td {
-  border : 1px solid black;
-  border-collapse: collapse;
-}
-th,td {
-  padding: 5px;
-}
-</style>
-<body>
-
-<table style="margin-left:40%;" id="demo"></table>
-
-
-<script>
-
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      myFunction(this);
-    }
-  };
-  xmlhttp.open("GET", "sponsors.xml", true);
-  xmlhttp.send();
-
-function myFunction(xml) {
-  var i;
-  var xmlDoc = xml.responseXML;
-  var table="<tr><th>Sr. No</th><th>Company Name</th></tr>";
-  var x = xmlDoc.getElementsByTagName("CD");
-  for (i = 0; i <x.length; i++) { 
-    table += "<tr><td>" +
-    x[i].getElementsByTagName("logo")[0].childNodes[0].nodeValue +
-    "</td><td>" +
-    x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
-    "</td></tr>";
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
   }
-  document.getElementById("demo").innerHTML = table;
-}
-</script>
+
+  th,
+  td {
+    padding: 5px;
+  }
+</style>
+
+<body style="background-color: #fff7f4;">
+  <nav id="navbar">
+    <img class="logo" src="images\logo.png" alt="park">
+    <h1><span style="color: #ff4b20;">Park</span><span>inzo</span></h1>
+
+    <ul>
+      <li><a style="color: #ff4b20" href="index.php">HOME</a></li>
+      <li><a href="about.php">ABOUT</a></li>
+      <li><a href="contact.php">CONTACT</a></li>
+      <li><a href="signup.php">SIGN UP</a></li>
+      <li><a href="login.php">LOGIN</a></li>
+    </ul>
+  </nav>
+  <nav class="topnav" id="myTopnav">
+    <img class="logo" src="images\logo.png" alt="park">
+    <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
+
+    <a href="index.php">HOME</a>
+    <a href="about.php">ABOUT</a>
+    <a href="contact.php">CONTACT</a>
+    <a href="signup.php">SIGNUP</a>
+    <a href="login.php">LOGIN</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </nav>
+
+  <div id="demo" style="height: auto;padding-bottom: 5%;"></div>
+
+
+  <script>
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        myFunction(this);
+      }
+    };
+    xmlhttp.open("GET", "faq.xml", true);
+    xmlhttp.send();
+
+    function myFunction(xml) {
+      var i;
+      var xmlDoc = xml.responseXML;
+      var table = '<h1 style="text-align: center;">FAQ</h1>';
+      var x = xmlDoc.getElementsByTagName("food");
+      for (i = 0; i < x.length; i++) {
+        table += '<div class="list1"><div style="background-color: #ff4b20; padding: 0.5%;border-radius: 5px;"><p style="color: white;">' +
+          x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+          '</p></div><p>' +
+          x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +
+          '</p></div>';
+      }
+      document.getElementById("demo").innerHTML = table;
+    }
+  </script>
+
+<div class="section-border-o"><br></div>
+  <footer>
+    <div id="footer">
+      <div style="color: #ff4b20;" id="left-footer">
+        <br><br><br>
+        <div id="footer-site-links">
+          <ul style="list-style-type: none;">
+            <h2>Site Map</h2>
+            <div style="background-color: black;height: 5px;width:50%;"></div>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="#">Members</a></li>
+          </ul>
+          <ul style="list-style-type: none;">
+            <h2>Explore</h2>
+            <div style="background-color: black;height: 5px;width:50%;"></div>
+            <li><a href="partners.html">FAQ</a></li>
+            <li><a href="contact.php">Feedback</a></li>
+            <li><a href="partners.html">Our Partners</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+          </ul>
+        </div><br><br>
+        <div class="wrapper">
+          <ul>
+            <li><a href="#"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-google fa-2x" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+
+
+      <div id="right-footer">
+        <h2 style="color: #ff4b20;"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Where are we
+          located ?</h2>
+        <br>
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.222610388061!2d72.85372091490721!3d19.22912765213814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b0d6e771d27b%3A0xcfe3c6ecba9c4c92!2sBhandarkar%20Bhavan%2C%20Sundar%20Nagar%2C%20Borivali%20West%2C%20Mumbai%2C%20Maharashtra%20400092!5e0!3m2!1sen!2sin!4v1566710714948!5m2!1sen!2sin"
+            width="380" height="220" frameborder="0" style="border:0;" allowfullscreen="">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div style="background-color: #1c1c1c;text-align:center;">
+      <p style="color: white;">&copy;Copyright &nbsp;Parkinzo&nbsp; 2019</p>
+    </div>
+  </footer>
 
 </body>
+
 </html>

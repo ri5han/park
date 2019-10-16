@@ -55,6 +55,13 @@
     $result = mysqli_query($conn,$queryList);
     $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
+    if(isset($_POST['find'])) {
+        $city = $_POST['search'];
+        $queryList = "SELECT * FROM spaces WHERE city LIKE '%$city%' ORDER BY distance";
+        $result = mysqli_query($conn,$queryList);
+        $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +82,6 @@
 </head>
 
 <body>
-    <p><span class="label">Your location:</span> <span id="location"></span></p>
 
     <!-- this is audio file to play on startup-->
     <audio autoplay>
@@ -94,8 +100,9 @@
                 <li><a href="listing.php">HOME</a></li>
                 <!-- <li><a href="about.html">ABOUT</a></li> -->
                 <li><a href="contact.php">CONTACT</a></li>
-                <li><a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
+                <li><i class="fa fa-user"></i>&nbsp;<a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
                 <li><a href="login.php?logout=1">LOGOUT</a></li>
+                <li><a style="color: red;" href="#">DELETE</a></li>
             </ul>
         </nav>
 
@@ -108,17 +115,20 @@
             <a href="contact.php">CONTACT</a>
             <a href="#"><?php echo $_SESSION['username']; ?></a>
             <a href="login.php?logout=1">LOGOUT</a>
+            <li><a style="color: red;" href="#">DELETE</a></li>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
         </nav>
-
+        <form method="post" action="listing.php">
         <div class="topbar">
+            
+
             <div class="search">
                 <fieldset>
-                    <legend>Parking at</legend>
-                    <i class="fa fa-search" aria-hidden="true"></i><input type="text"
-                        placeholder="Where do you want to park?">
+                    <legend>Search City</legend>
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" name="search" placeholder="Search">
                 </fieldset>
             </div>
 
@@ -129,12 +139,13 @@
                 </fieldset>
             </div> -->
             <div class="search3">
-                <button type="button" name="search">SEARCH</button>
+                <button type="submit" name="find" value="SEARCH">Search</button>
             </div>
 
-
-
+            
         </div>
+        </form>
+
 
         <div class="listing">
             <?php foreach($spaces as $space): ?>
