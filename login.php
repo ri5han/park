@@ -18,6 +18,10 @@
         setcookie('username',$username,time()+86400);
         header('Location: getLocation.php');
     }
+
+    if(isset($_GET['delete'])) {
+        echo "<script>alert('Account deleted.');</script>";
+    }
    
     if(isset($_POST['login'])) {
         $username = htmlspecialchars($_POST['username']);

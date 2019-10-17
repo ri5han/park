@@ -102,7 +102,7 @@
                 <li><a href="contact.php">CONTACT</a></li>
                 <li><i class="fa fa-user"></i>&nbsp;<a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
                 <li><a href="login.php?logout=1">LOGOUT</a></li>
-                <li><a style="color: red;" href="#">DELETE</a></li>
+                <li><a style="color: red;" href="delete.php?delete=1">DELETE</a></li>
             </ul>
         </nav>
 
