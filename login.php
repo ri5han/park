@@ -13,10 +13,6 @@
         session_destroy();
         $_GET['logout'] = 0;
         //header('Location: login.php');
-    } elseif(isset($_COOKIE['username'])) {
-        $_SESSION['username'] = $_COOKIE['username'];
-        setcookie('username',$username,time()+86400);
-        header('Location: getLocation.php');
     }
 
     if(isset($_GET['delete'])) {
