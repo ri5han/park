@@ -40,7 +40,7 @@
                 // echo "Logged in";
                 // echo $_SESSION['username'];
             } else {
-                echo "<script>alert('User or Password is incorrect.');</script>";                            
+                echo "<script>alert('Username or Password is incorrect.');</script>";                            
             }
         }
     }
