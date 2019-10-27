@@ -134,7 +134,7 @@
                             type="submit" value="SIGN UP" onclick="return validateSignup()">
                         </form>
                         <br><br>
-                        <h4>Already have an account ?</h4><br><a href="login.html"
+                        <h4>Already have an account ?</h4><br><a href="login.php"
                             style="background-color: #3385ff;text-decoration: none; color:white;padding: 10px; border-radius: 20px; href="
                             login.php">LOGIN</a>
                     </div>
