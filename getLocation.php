@@ -69,8 +69,16 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
 </head>
 
 <body>
-    <p><span class="label"></span><?php echo $_SESSION['latitude']."&nbsp;&nbsp&nbsp;";
-    echo $_SESSION['longitude']; ?><span id="location"></span></p>
+    <p><span class="label"></span>
+    <?php 
+        if(isset($_SESSION['latitude'])) {
+            echo $_SESSION['latitude']."&nbsp;&nbsp&nbsp;";
+            echo $_SESSION['longitude']; 
+        } else {
+            echo "Waiting for location .....";
+        }
+    ?>
+    <span id="location"></span></p>
     <p style="margin-top: 10%;"><b>Please allow us to locate you by selecting "Allow".<br>Also make sure to select
             "Remember"</b></p>
 </body>

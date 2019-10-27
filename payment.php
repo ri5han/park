@@ -10,7 +10,7 @@
         echo "<script>alert('You are not authenticated. Please login or signup.');</script>";
     }
 
-    if($_GET['spaceId']){
+    if(isset($_GET['spaceId'])){
         $spaceId = $_GET['spaceId'];
         $_SESSION['spaceId'] = $spaceId;
     } else {
@@ -40,14 +40,16 @@
       $_SESSION['startTime'] = date('h:i');
       $endTime = strtotime($_SESSION['startTime']) + 60*60;
       $_SESSION['endTime'] = date('h:i', $endTime);
-      header('Location: otp.php');
+      echo "<script>window.location.href='otp.php';</script>";
+      //header('Location: otp.php');
 
   } elseif(isset($_POST['card'])) {
       //setcookie('spaceId',$spaceId,time()+864000,'/');
       $_SESSION['startTime'] = date('h:i');
       $endTime = strtotime($_SESSION['startTime']) + 60*60;
       $_SESSION['endTime'] = date('h:i', $endTime);
-      header('Location: otp.php');
+      echo "<script>window.location.href='otp.php';</script>";
+      //header('Location: otp.php');
 
   } elseif(isset($_POST['add-money'])) {
       //setcookie('spaceId',$spaceId,time()+864000,'/');
@@ -55,7 +57,8 @@
       $balance = $users[0]['balance'] + $money;
       $queryDist = "UPDATE users SET balance='$balance' WHERE username='$username'";
       $updateDistance = mysqli_query($conn, $queryDist);
-      header('Location: payment.php?spaceId');
+      echo "<script>window.location.href='payment.php';</script>";
+      //header('Location: payment.php?spaceId');
 
   }
 
