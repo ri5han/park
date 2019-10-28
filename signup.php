@@ -15,7 +15,7 @@
         if($result) {
             echo "<script>alert('Account successfully created. Please head to Login.');</script>";
         } else {
-            echo "<script>alert('There was an issue creating your account. Please try again.');</script>";
+            echo "<script>alert('User already exists.');</script>";
         }
     
     }
