@@ -1,40 +1,68 @@
 <?php
 
+require('include/dbconnect.php');
+
 if(isset($_POST['submit'])){
-		
+	
     $name = htmlspecialchars($_POST['username']);
     $phone = htmlspecialchars($_POST['phone']);
     $email = htmlspecialchars($_POST['email']);
     $city = htmlspecialchars($_POST['city']);
-    $wifi = htmlspecialchars($_POST['wifi']);
-    $charging = htmlspecialchars($_POST['charging']);
-    $handicap = htmlspecialchars($_POST['handicap']);
+
+    if(isset($_POST['wifi'])) {
+        $wifi = htmlspecialchars($_POST['wifi']);
+    } else {
+        $wifi = 0;
+    }
+
+    if(isset($_POST['charging'])) {
+        $charging = htmlspecialchars($_POST['charging']);
+    } else {
+        $charging = 0;
+    }
+
+    if(isset($_POST['handicap'])) {
+        $handicap = htmlspecialchars($_POST['handicap']);
+    } else {
+        $handicap = 0;
+    }
+
     $capacity = htmlspecialchars($_POST['capacity']);
     $duration = htmlspecialchars($_POST['duration']);
+    $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));
 
-    
-    $toEmail = 'rishanmascarenhas@gmail.com';
-    $subject = 'Contact From '.$name;
-    $body = '<h2>Contact Feedback</h2>
-            <h4>Name</h4><p>'.$name.'</p>
-            <h4>Phone</h4><p>'.$phone.'</p>
-            <h4>Email</h4><p>'.$email.'</p>
-            <h4>City</h4><p>'.$city.'</p>
-            <h4>Amenities</h4><p>'.$wifi." ".$handicap." ".$Charging.'</p>
-            <h4>Capacity</h4><p>'.$capacity.'</p>
-            <h4>Duration</h4><p>'.$duration.'</p>';
-    
-    $headers = "MIME-Version: 1.0" ."\r\n";
-    $headers .="Content-Type:text/html;charset=UTF-8" . "\r\n";
-    
-    $headers .= "From: " .$name. "<".$email.">". "\r\n";
-    if(mail($toEmail, $subject, $body, $headers)){
-        // Email Sent
-        echo "<script>prompt('Your details have been sent.');</script>";
+    $query = "INSERT INTO rent (name,phone,email,city,wifi,charging,handicap,capacity,duration,image) 
+    VALUES('$name','$phone','$email','$city','$wifi','$charging','$handicap','$capacity','$duration','$image')";
+
+    if(mysqli_query($conn,$query)) {
+        echo "<script>alert('Details have been sent. We will contact you within 48 hours.');</script>";
     } else {
-        // Failed
-        echo "<script>prompt('There was a problem.');</script>";
+        echo "<script>alert('There was an error. Please try again.');</script>";
     }
+    
+    
+    // $toEmail = 'rishanmascarenhas@gmail.com';
+    // $subject = 'Contact From '.$name;
+    // $body = '<h2>Contact Feedback</h2>
+    //         <h4>Name</h4><p>'.$name.'</p>
+    //         <h4>Phone</h4><p>'.$phone.'</p>
+    //         <h4>Email</h4><p>'.$email.'</p>
+    //         <h4>City</h4><p>'.$city.'</p>
+    //         <h4>Amenities</h4><p>'.$wifi." ".$handicap." ".$Charging.'</p>
+    //         <h4>Capacity</h4><p>'.$capacity.'</p>
+    //         <h4>Duration</h4><p>'.$duration.'</p>';
+    
+    // $headers = "MIME-Version: 1.0" ."\r\n";
+    // $headers .="Content-Type:text/html;charset=UTF-8" . "\r\n";
+    
+    // $headers .= "From: " .$name. "<".$email.">". "\r\n";
+    // if(mail($toEmail, $subject, $body, $headers)){
+    //     // Email Sent
+    //     echo "<script>prompt('Your details have been sent.');</script>";
+    // } else {
+    //     // Failed
+    //     echo "<script>prompt('There was a problem.');</script>";
+    // }
 }
 
 ?>
@@ -75,7 +103,7 @@ if(isset($_POST['submit'])){
                         <br>
                         <div class="login-align">
                             <div style="text-align: left;">
-                                <form name="Request_Frm" id="Request_Frm" action="rent.php" method="post">
+                                <form name="Request_Frm" id="Request_Frm" action="rent.php" method="post" enctype="multipart/form-data">
                                     <i class="fa fa-user fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
                                     <label>Name</label>&nbsp;&nbsp;<br><input name="username" id="s-username"
                                         type="text" placeholder="Enter name" required>
@@ -107,15 +135,15 @@ if(isset($_POST['submit'])){
                                     <br>
                                     <div class="ammen">
                                         <label>Handicap&nbsp;wheels</label>
-                                        <input value="handicap" id="city" type="checkbox" name="handicap">
+                                        <input value="1" id="city" type="checkbox" name="handicap">
                                     </div>
                                     <div class="ammen">
                                         <label>Charging&nbsp;port</label>
-                                        <input value="charging" id="city" type="checkbox" name="charging">
+                                        <input value="1" id="city" type="checkbox" name="charging">
                                     </div>
                                     <div class="ammen">
                                         <label>WiFi&nbsp;Enabled</label>
-                                        <input name="wifi" id="city" type="checkbox" name="wifi">
+                                        <input value="1" id="city" type="checkbox" name="wifi">
                                     </div><br>
                                     <i class="fa fa-car fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<label>Total
                                         Capacity</label>&nbsp;&nbsp;<br>
