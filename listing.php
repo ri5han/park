@@ -115,7 +115,7 @@
             <a href="contact.php">CONTACT</a>
             <a href="#"><?php echo $_SESSION['username']; ?></a>
             <a href="login.php?logout=1">LOGOUT</a>
-            <li><a style="color: red;" href="#">DELETE</a></li>
+            <a style="color: red;" href="#">DELETE</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
