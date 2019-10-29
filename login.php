@@ -94,11 +94,11 @@
                                 <form method="post" action="login.php">
                                     <i class="fa fa-user fa-2x aria-hidden="
                                         true"></i>&nbsp;&nbsp;<label>Username</label>&nbsp;&nbsp;<br>
-                                    <input name="username" type="text" placeholder="Enter username">
+                                    <input name="username" type="text" placeholder="Enter username" required>
                                     <br><br>
                                     <i class="fa fa-lock fa-2x aria-hidden="
                                         true"></i>&nbsp;&nbsp;<label>Password</label>&nbsp;&nbsp;<br>
-                                    <input name="password" type="password" placeholder="Enter password">
+                                    <input name="password" type="password" placeholder="Enter password" required>
                             </div>
                             <br>
                         </div>
