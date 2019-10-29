@@ -55,9 +55,11 @@
     $result = mysqli_query($conn,$queryList);
     $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
+
     if(isset($_POST['find'])) {
         $city = $_POST['search'];
         $queryList = "SELECT * FROM spaces WHERE city LIKE '%$city%' ORDER BY distance";
+        $result = NULL;
         $result = mysqli_query($conn,$queryList);
         $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
     }
@@ -182,6 +184,12 @@
                 </div>
             </div>
             <?php endforeach; ?>
+        
+            <div style="border: 1px solid white;" class="list1">
+                <h4 style="text-align:center;">No more results found.</h4>
+            </div>
+        
+
             <br>
             <br>
         </div>
