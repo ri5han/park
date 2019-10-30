@@ -23,10 +23,10 @@
 		$headers .= "From: " .$name. "<".$email.">". "\r\n";
 		if(mail($toEmail, $subject, $body, $headers)){
 		    // Email Sent
-		    echo 'Your email has been sent';
+            echo "<script>alert('Request successfully sent.');</script>";        
 		} else {
 		    // Failed
-			echo 'Your email was not sent';
+            echo "<script>alert('There was an error submitting your request.');</script>";
 		}
 	}
 ?>
@@ -179,7 +179,7 @@
                         <div style="background-color: black;height: 5px;width:50%;"></div>
                         <li><a href="partners.html">FAQ</a></li>
                         <li><a href="contact.php">Feedback</a></li>
-                        <li><a href="partners.html">Our Partners</a></li>
+                        <li><a href="rent.php">Rent Space</a></li>
                         <li><a href="terms.html">Terms & Conditions</a></li>
                     </ul>
                 </div><br><br>

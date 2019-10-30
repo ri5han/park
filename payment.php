@@ -32,12 +32,23 @@
 
       $total = $price[0]['price']+0.5+1.5;
       $_SESSION['total'] = $total;
-      $balance = $users[0]['balance'] - $total; 
-      $queryDist = "UPDATE users SET balance='$balance' WHERE username='$username'";
-      $updateDistance = mysqli_query($conn, $queryDist);
+      $balance = $users[0]['balance'];
+      if($balance<=$_SESSION['total']) {
+        echo "<script>alert('Your wallet balance is not sufficient.');</script>";
+        echo "<script>window.location.href='payment.php';</script>";
+
+      } else {
+        $balance = $users[0]['balance'] - $total; 
+        $queryDist = "UPDATE users SET balance='$balance' WHERE username='$username'";
+        $updateDistance = mysqli_query($conn, $queryDist);
+
+      }
+  
       //setcookie('spaceId',$spaceId,time()+864000,'/');
       
-      $_SESSION['startTime'] = date('h:i');
+      $hrs = $_POST['hrs'];
+      $mins = $_POST['mins'];
+      $_SESSION['startTime'] = date('h:i',mktime($hrs,$mins));
       $endTime = strtotime($_SESSION['startTime']) + 60*60;
       $_SESSION['endTime'] = date('h:i', $endTime);
       echo "<script>window.location.href='otp.php';</script>";
@@ -45,7 +56,9 @@
 
   } elseif(isset($_POST['card'])) {
       //setcookie('spaceId',$spaceId,time()+864000,'/');
-      $_SESSION['startTime'] = date('h:i');
+      $hrs = $_POST['hrs'];
+      $mins = $_POST['mins'];
+      $_SESSION['startTime'] = date('h:i',mktime($hrs,$mins));
       $endTime = strtotime($_SESSION['startTime']) + 60*60;
       $_SESSION['endTime'] = date('h:i', $endTime);
       echo "<script>window.location.href='otp.php';</script>";
@@ -186,10 +199,18 @@
       color: black;
     }
 
+    select {
+      background-color: #fff;
+    }
+
     /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
     @media (max-width: 800px) {
       .row {
         flex-direction: column-reverse;
+      }
+
+      .reverse {
+        flex-direction: column;
       }
 
       .col-25 {
@@ -288,11 +309,51 @@
         <i class="fa fa-bars"></i>
       </a>
     </nav>
+
+    <br>
+    <form method="post" action="payment.php">
+    <div class="container row reverse" style="width: 95%;">
+        <h3>&nbsp;Select&nbsp; arriving&nbsp; time:</h3>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <select name="hrs">
+          <option value="#">Hrs</option>
+          <?php
+            $hr = date('h');
+            $ampm = date('a');
+            if($ampm=='am') {
+              for($i=$hr;$i<=23;$i++) {
+                echo '<option value="'.$i.'">'.$i.'</option>';
+              }
+            } else {
+              for($i=$hr+12;$i<=23;$i++) {
+                echo '<option value="'.$i.'">'.$i.'</option>';
+              }
+              echo '<option value="0">00</option>';
+            }
+            
+          ?>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        <select name="mins">
+            <option value="#">Mins</option>
+            <?php
+              for($i=0;$i<=59;$i=$i+5) {
+                echo '<option value="'.$i.'">'.$i.'</option>';
+              }
+            ?>
+          </select>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <small>*You get only 1 hour from arrival time.</small>
+    </div>
+
+
+
     <div class="row">
       <div class="col-75">
         <div class="container">
           <div class="row">
-            <form method="post" action="payment.php">
+
+            <!-- <form method="post" action="payment.php"> -->
               <div class="col-50">
                 <h2><b>Pay&nbsp;by &nbsp;<span style="color: #ff4b20;">Card</span>&nbsp;&nbsp;&nbsp;&nbsp;<i
                       class="fa fa-credit-card"></i></b></h2><br>
@@ -307,9 +368,9 @@
                   <input name="card" type="submit" value="Pay by Card" class="btn">
                 </div>
               </div>
-            </form>
+            <!-- </form>
 
-            <form method="post" action="payment.php">
+            <form method="post" action="payment.php"> -->
               <div class="col-50">
                 <h2><b>Pay&nbsp;by&nbsp;<span
                       style="color: #ff4b20;">Payinzo&nbsp;Wallet</span>&nbsp;&nbsp;&nbsp;&nbsp;<i
@@ -368,7 +429,7 @@
               <div style="background-color: black;height: 5px;width:50%;"></div>
               <li><a href="partners.html">FAQ</a></li>
               <li><a href="contact.php">Feedback</a></li>
-              <li><a href="partners.html">Our Partners</a></li>
+              <li><a href="rent.php">Rent Space</a></li>
               <li><a href="terms.html">Terms & Conditions</a></li>
             </ul>
           </div><br><br>
