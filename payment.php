@@ -157,7 +157,7 @@
       margin-right: 5%;
     }
 
-    input[type=text] {
+    input[type=text], input[type=number], input[type=date] {
       width: 100%;
       margin-bottom: 20px;
       padding: 12px;
@@ -364,11 +364,11 @@
                 <h2><b>Pay&nbsp;by &nbsp;<span style="color: #ff4b20;">Card</span>&nbsp;&nbsp;&nbsp;&nbsp;<i
                       class="fa fa-credit-card"></i></b></h2><br>
                 <label for="cname">Name on Card</label>
-                <input type="text" id="cname" name="cardname" placeholder="Nikhil Mahendra Patil">
+                <input type="text" id="cname" name="cardname" placeholder="Neil Nithin Mukesh">
                 <label for="ccnum">Credit card number</label>
                 <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
                 <label for="expmonth">Expiry Date</label>
-                <input type="text" id="expdate" name="expdate" placeholder="October">
+                <input type="date" id="expdate" name="expdate">
                 <div class="row">
 
                   <input name="card" type="submit" value="Pay by Card" class="btn">
@@ -385,7 +385,7 @@
                     &nbsp;&nbsp;</h3><br>
 
                   <label for="money"><i class="fa fa-envelope"></i> Add Money</label>
-                  <input type="text" id="cash" name="money" placeholder="Add money">
+                  <input min="1" type="number" id="cash" name="money" placeholder="Add money">
 
                   <div class="row">
                     <div class="col-50">
