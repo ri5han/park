@@ -68,11 +68,11 @@
                 <img class="logo" src="images\logo.png" alt="park">
                 <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
 
-                <a href="listing.php">HOME</a>
+                <a style="padding: 4% 0 0 4%; text-align:center;" href="listing.php">HOME</a>
                 <!-- <a href="#news">ABOUT</a> -->
-                <a style="color: #ff4b20" href="contact.php">CONTACT</a>
-                <a href="#"><?php echo $_SESSION['username']; ?></a>
-                <a href="login.php?logout=1">LOGOUT</a>
+                <a style="margin: 3% 0 0 0%; text-align:center;" href="contact.php">CONTACT</a>
+                <a style="margin: 3% 0 0 0%; text-align:center;" href="#"><i class="fa fa-user"></i>&nbsp;<?php echo $_SESSION['username']; ?></a>
+                <a style="margin: 3% 0 5% 0%; text-align:center;" href="login.php?logout=1">LOGOUT</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -94,11 +94,11 @@
                 <img class="logo" src="images\logo.png" alt="park">
                 <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
 
-                <a href="index.php">HOME</a>
-                <a href="about.php">ABOUT</a>
-                <a style="color: #ff4b20" href="contact.php">CONTACT</a>
-                <a href="signup.php">SIGNUP</a>
-                <a href="login.php">LOGIN</a>
+                <a style="padding: 4% 0 0 4%; text-align:center;" href="index.php">HOME</a>
+                <a style="margin: 3% 0 0 0%; text-align:center;" href="about.php">ABOUT</a>
+                <a style="margin: 3% 0 0 0%; text-align:center; color: #ff4b20;" href="contact.php">CONTACT</a>
+                <a style="margin: 3% 0 0 0%; text-align:center;" href="signup.php">SIGNUP</a>
+                <a style="margin: 3% 0 5% 0%; text-align:center;" href="login.php">LOGIN</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>

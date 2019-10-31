@@ -93,6 +93,21 @@ if(isset($_POST['submit'])){
                 <li><a href="login.html">LOGIN</a></li>
             </ul>
         </nav>
+
+        <nav class="topnav" id="myTopnav">
+            <img class="logo" src="images\logo.png" alt="park">
+            <h1><span style="color: #ff4b20;">Park</span><span style="color: #fff;">inzo</span></h1>
+
+            <a style="padding: 4% 0 0 4%; text-align:center;" href="index.php">HOME</a>
+            <a style="margin: 3% 0 0 0%; text-align:center;" href="about.php">ABOUT</a>
+            <a style="margin: 3% 0 0 0%; text-align:center;" href="contact.php">CONTACT</a>
+            <a style="margin: 3% 0 0 0%; text-align:center;" href="signup.php">SIGNUP</a>
+            <a style="margin: 3% 0 5% 0%; text-align:center;" href="login.php">LOGIN</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+
         <div class="login-bg-overlay">
             <center>
                 <div style="color:white;" class="signup-bg-content">
@@ -175,6 +190,16 @@ if(isset($_POST['submit'])){
         </div>
     </div>
 
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
 
     <div class="section-border-o"><br></div>
 
