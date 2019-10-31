@@ -105,6 +105,7 @@
                 <li><i class="fa fa-user"></i>&nbsp;<a style="color: #ff4b20" href="#"><?php echo $_SESSION['username']; ?></a></li>
                 <li><a href="login.php?logout=1">LOGOUT</a></li>
                 <li><a style="color: red;" href="delete.php?delete=1">DELETE</a></li>
+                <li><a href="getLocation.php"><i class="fa fa-refresh"></i></a></li>
             </ul>
         </nav>
 
@@ -115,9 +116,10 @@
             <a style="padding: 4% 0 0 4%; text-align:center;" href="listing.php">HOME</a>
             <!-- <a href="#news">ABOUT</a> -->
             <a style="margin: 3% 0 0 0%; text-align:center;" href="contact.php">CONTACT</a>
-            <a style="margin: 3% 0 0 0%; text-align:center;" href="#"><i class="fa fa-user"></i>&nbsp;<?php echo $_SESSION['username']; ?></a>
+            <a style="margin: 3% 0 0 0%; text-align:center; color: #ff4b20;" href="#"><i class="fa fa-user"></i>&nbsp;<?php echo $_SESSION['username']; ?></a>
             <a style="margin: 3% 0 0 0%; text-align:center;" href="login.php?logout=1">LOGOUT</a>
-            <a style="color: red; margin: 3% 0 5% 0%; text-align:center;" href="delete.php?delete=1">DELETE</a>
+            <a style="color: red; margin: 3% 0 3% 0%; text-align:center;" href="delete.php?delete=1">DELETE</a>
+            <a style="margin: 3% 0 5% 0%; text-align:center;" href="getLocation.php"><i class="fa fa-refresh"></i>&nbsp;RELOCATE</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
