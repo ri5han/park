@@ -15,8 +15,9 @@
     $spaceId = $_SESSION['spaceId'];
 
     $username = $_SESSION['username'];
-    $otp = rand(10000,99999);
-    $_SESSION['otp'] = $otp;
+    //$otp = rand(10000,99999);
+    //$_SESSION['otp'] = $otp;
+    $otp = $_SESSION['otp'];
 
     $query = "UPDATE users SET otp='$otp' WHERE username='$username'";
     $result = mysqli_query($conn,$query);
@@ -24,6 +25,16 @@
     $query = "SELECT * FROM spaces WHERE id='$spaceId'";
     $result = mysqli_query($conn,$query);
     $spaces = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+    $username = $_SESSION['username'];
+    $amount = $_SESSION['total'];
+
+    if(isset($_SESSION['otp']) && $_SESSION['dbentered']==0) {
+        $query = "INSERT INTO booking(username,starttime,endtime,spaceid,amount,otp) 
+        VALUES('$username','$startTime','$endTime','$spaceId','$amount','$otp')";
+        $result = mysqli_query($conn,$query);
+        $_SESSION['dbentered'] = 1;
+    }
 
 ?>
 

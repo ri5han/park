@@ -51,6 +51,9 @@
       $_SESSION['startTime'] = date('h:i',mktime($hrs,$mins));
       $endTime = strtotime($_SESSION['startTime']) + 60*60;
       $_SESSION['endTime'] = date('h:i', $endTime);
+      $otp = rand(10000,99999);
+      $_SESSION['otp'] = $otp;
+      $_SESSION['dbentered'] = 0;
       echo "<script>window.location.href='otp.php';</script>";
       //header('Location: otp.php');
 
@@ -61,6 +64,9 @@
       $_SESSION['startTime'] = date('h:i',mktime($hrs,$mins));
       $endTime = strtotime($_SESSION['startTime']) + 60*60;
       $_SESSION['endTime'] = date('h:i', $endTime);
+      $otp = rand(10000,99999);
+      $_SESSION['otp'] = $otp;
+      $_SESSION['dbentered'] = 0;
       echo "<script>window.location.href='otp.php';</script>";
       //header('Location: otp.php');
 
